@@ -1,24 +1,62 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+/**
+ * Studio Escrow homepage — 1:1 clone of the original Webflow export.
+ *
+ * The exported HTML, Webflow CSS, GSAP/Lenis/ScrollTrigger/SplitText JS and
+ * the video lifecycle manager all live in /public. A self-contained copy
+ * (`/index-clone.html`) was generated from the mirror with every missing
+ * raster image / video rewritten to the Webflow CDN, so the hero video,
+ * background videos, imagery and all scroll/section animations run exactly
+ * as on the source site.
+ *
+ * It is loaded in a full-viewport iframe so the browser treats it as a real
+ * document and executes every <script> verbatim (dangerouslySetInnerHTML
+ * would inject but NOT execute scripts, which would kill all animations).
+ */
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      {
+        title: "Studio Escrow — All-in-One CRM, AI & Business Automation",
+      },
+      {
+        name: "description",
+        content:
+          "Run your CRM, marketing, sales, communications, workflows, and AI in one connected platform. Explore Studio Escrow Growth, Scale, Medical, and Mortgage suites.",
+      },
+      {
+        property: "og:title",
+        content: "Studio Escrow — All-in-One CRM, AI & Business Automation",
+      },
+      {
+        property: "og:description",
+        content:
+          "Run your CRM, marketing, sales, communications, workflows, and AI in one connected platform. Explore Studio Escrow Growth, Scale, Medical, and Mortgage suites.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-vibe-blank-page-placeholder="REMOVE_THIS"
-        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIHJ4PSIyNCIgZmlsbD0iI2YxZWZlNyIvPjxwYXRoIGQ9Ik0xMDAgNjR2NzJNNjQgMTAwaDcyIiBzdHJva2U9IiNjOWM0YjUiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+"
-        alt="Your app will live here!"
-      />
-    </div>
+    <iframe
+      src="/index-clone.html"
+      title="Studio Escrow — All-in-One CRM, AI & Business Automation"
+      style={{
+        position: "fixed",
+        inset: 0,
+        width: "100%",
+        height: "100%",
+        border: "none",
+        margin: 0,
+        padding: 0,
+        display: "block",
+      }}
+      allow="autoplay; fullscreen; picture-in-picture"
+    />
   );
 }
