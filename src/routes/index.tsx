@@ -1,38 +1,35 @@
 import { createFileRoute } from "@tanstack/react-router";
+import {
+  Nav,
+  Hero,
+  CapMarquee,
+  Industries,
+  Gallery,
+  GrayLogos,
+  Pillars,
+  Integrations,
+  Plans,
+  Cycle,
+  FeatureCards,
+  Faq,
+  FinalCta,
+  Footer,
+} from "@/lib/studio-escrow-sections";
 
-/**
- * Studio Escrow homepage — 1:1 clone of the original Webflow export.
- *
- * The exported HTML, Webflow CSS, GSAP/Lenis/ScrollTrigger/SplitText JS and
- * the video lifecycle manager all live in /public. A self-contained copy
- * (`/index-clone.html`) was generated from the mirror with every missing
- * raster image / video rewritten to the Webflow CDN, so the hero video,
- * background videos, imagery and all scroll/section animations run exactly
- * as on the source site.
- *
- * It is loaded in a full-viewport iframe so the browser treats it as a real
- * document and executes every <script> verbatim (dangerouslySetInnerHTML
- * would inject but NOT execute scripts, which would kill all animations).
- */
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      {
-        title: "Studio Escrow — All-in-One CRM, AI & Business Automation",
-      },
+      { title: "Studio Escrow — One Platform. Every Business." },
       {
         name: "description",
         content:
-          "Run your CRM, marketing, sales, communications, workflows, and AI in one connected platform. Explore Studio Escrow Growth, Scale, Medical, and Mortgage suites.",
+          "Studio Escrow is one connected business platform — CRM, marketing, sales, automations, and AI in one login. Explore Growth, Scale, and Medical & Mortgage suites.",
       },
-      {
-        property: "og:title",
-        content: "Studio Escrow — All-in-One CRM, AI & Business Automation",
-      },
+      { property: "og:title", content: "Studio Escrow — One Platform. Every Business." },
       {
         property: "og:description",
         content:
-          "Run your CRM, marketing, sales, communications, workflows, and AI in one connected platform. Explore Studio Escrow Growth, Scale, Medical, and Mortgage suites.",
+          "Your CRM, marketing, and AI, connected. One login, one dashboard — for every business that runs on leads, clients, and follow-up.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -43,20 +40,23 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <iframe
-      src="/index-clone.html"
-      title="Studio Escrow — All-in-One CRM, AI & Business Automation"
-      style={{
-        position: "fixed",
-        inset: 0,
-        width: "100%",
-        height: "100%",
-        border: "none",
-        margin: 0,
-        padding: 0,
-        display: "block",
-      }}
-      allow="autoplay; fullscreen; picture-in-picture"
-    />
+    <div className="se-page">
+      <Nav />
+      <main id="main-content">
+        <Hero />
+        <CapMarquee />
+        <Industries />
+        <Gallery />
+        <GrayLogos />
+        <Pillars />
+        <Integrations />
+        <Plans />
+        <FeatureCards />
+        <Cycle />
+        <Faq />
+        <FinalCta />
+      </main>
+      <Footer />
+    </div>
   );
 }
