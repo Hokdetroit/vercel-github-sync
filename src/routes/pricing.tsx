@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { MirroredPage } from "@/components/site/mirrored-page";
 import { routes } from "@/lib/routes";
 
 export const Route = createFileRoute("/pricing")({
@@ -16,22 +17,5 @@ export const Route = createFileRoute("/pricing")({
 });
 
 function PricingPage() {
-  return (
-    <iframe
-      src="/mirror-pages/pricing.html"
-      title="Pricing | Studio Escrow"
-      style={{
-        position: "fixed",
-        inset: 0,
-        width: "100%",
-        height: "100%",
-        border: "none",
-        margin: 0,
-        padding: 0,
-        display: "block",
-        zIndex: 50,
-      }}
-      allow="autoplay; fullscreen; picture-in-picture"
-    />
-  );
+  return <MirroredPage src="/mirror-pages/pricing.html" title="Pricing | Studio Escrow" />;
 }
