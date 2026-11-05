@@ -19,8 +19,8 @@ export const Route = createFileRoute("/ai-studio")({
 });
 
 import { routeMetadata, href } from "@/lib/routes";
+import { StudioHero } from "@/components/ai-studio/studio-hero";
 import { StudioExplorer } from "@/components/ai-studio/studio-explorer";
-import { StudioFilm } from "@/components/ai-studio/studio-film";
 import s from "@/components/ai-studio/studio.module.css";
 
 const capabilities = [
@@ -49,46 +49,7 @@ const capabilities = [
 function PageComponent() {
   return (
     <main id="main" className={`${s.page} font-sans`}>
-      <section className={s.hero}>
-        <div className={s.heroTop}>
-          <span>Studio Escrow / AI Studio</span>
-          <a href="#explore">Explore the possibilities ↓</a>
-        </div>
-        <div className={s.heroTitle}>
-          <h1>
-            AI Studio<span>.</span>
-          </h1>
-          <p>
-            Less busywork.
-            <br />
-            More possibility.
-          </p>
-        </div>
-        <div className={s.heroBottom}>
-          <span className={s.eyebrow}>Intelligence, built into your business</span>
-          <div>
-            <p>
-              Ask in plain English. Put your CRM, knowledge and workflows to work. From the first
-              lead to the next big idea, meet an AI workspace that connects the dots.
-            </p>
-            <div className={s.actions}>
-              <a className={s.primary} href={href("scheduleDemo")}>
-                Explore AI with us <span aria-hidden="true">→</span>
-              </a>
-              <a className={s.textLink} href="#studio-film">
-                Watch the studio film
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="studio-film" className={s.filmSection} aria-label="AI Studio video">
-        <StudioFilm />
-        <div className={s.filmCaption}>
-          <span>Meet your next way of working.</span>
-          <span>The original AI Studio film · 20 seconds</span>
-        </div>
-      </section>
+      <StudioHero />
       <nav className={s.sectionNav} aria-label="AI Studio sections">
         <a href="#explore">Ask AI</a>
         <a href="#capabilities">Build without code</a>
