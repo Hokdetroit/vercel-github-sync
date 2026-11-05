@@ -126,7 +126,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      <MortgageIntegrations />
+      <MortgageIntegrations industry="healthcare" />
 
       <AboutCalculator />
 

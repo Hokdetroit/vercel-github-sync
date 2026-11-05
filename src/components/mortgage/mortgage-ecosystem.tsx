@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import assets from "./assets.json";
+import items from "../suites/medical-integrations.json";
 import s from "./mortgage.module.css";
 
 const partnerNames = [
@@ -62,7 +63,7 @@ const tools = assets
     ...a,
     group: Object.keys(groups).find((g) => groups[g].includes(a.name)) || "Operations",
   }));
-const crms = [
+const crms: [string, string, string][] = [
   ["Total Expert", "Webhook", "Enterprise mortgage marketing and LOS workflows."],
   ["Jungo", "Zapier", "Salesforce-based CRM and realtor relationship management."],
   ["BNTouch", "Zapier", "Mortgage marketing automation and milestone sequences."],
@@ -126,50 +127,126 @@ export function MortgagePartners() {
   );
 }
 
+type DirectoryTool = {
+  name: string;
+  logo: string;
+  group: string;
+  category?: string;
+  summary?: string;
+  description?: string;
+};
+
+const healthcareGroups = ["Attract", "Book & care", "Payments", "Connect & retain"];
+const healthcareCrms: [string, string, string][] = [
+  [
+    "Aesthetic Record",
+    "Native sync",
+    "Two-way patient chart, treatment package and appointment sync for aesthetic practices and medical spas.",
+  ],
+  [
+    "Nextech",
+    "Native sync",
+    "Specialty EHR sync for plastic surgery and dermatology — leads, quotes, schedules and treatment histories.",
+  ],
+  [
+    "PatientNow",
+    "Native sync",
+    "Aesthetic EMR sync with photo galleries, treatment plans, quotes and reward points.",
+  ],
+  [
+    "Zenoti",
+    "Native sync",
+    "Multi-location spa and medical spa booking, membership and marketing-consent sync.",
+  ],
+  [
+    "Mindbody",
+    "Native sync",
+    "Wellness and fitness booking, class schedules and purchase-history sync into your CRM pipelines.",
+  ],
+  [
+    "Modernizing Medicine (ModMed)",
+    "Native sync",
+    "Specialty EHR chart and appointment sync with automated pre-op instructions and review generation.",
+  ],
+];
+const healthcareTools: DirectoryTool[] = (
+  items as {
+    name: string;
+    logo: string;
+    category: string;
+    group: string;
+    summary: string;
+    description: string;
+  }[]
+).map((item) => ({
+  name: item.name,
+  logo: item.logo,
+  group: item.group,
+  category: item.category,
+  summary: item.summary,
+  description: item.description,
+}));
+
 export function MortgageIntegrations({
   industry = "mortgage",
 }: {
-  industry?: "mortgage" | "real-estate";
+  industry?: "mortgage" | "real-estate" | "healthcare";
 }) {
+  const isHealthcare = industry === "healthcare";
   const isRealEstate = industry === "real-estate";
-  const directoryTools = isRealEstate
-    ? tools
-        .filter((t) => !["LendingPad", "Bonzo"].includes(t.name))
-        .map((t) => ({ ...t, group: t.group === "Mortgage & CRM" ? "Real estate & CRM" : t.group }))
-    : tools;
-  const directoryGroups = isRealEstate
-    ? ["Real estate & CRM", "Marketing", "Operations", "Commerce & web"]
-    : Object.keys(groups);
-  const directoryCrms = isRealEstate
-    ? [
-        [
-          "Follow Up Boss",
-          "Scope review",
-          "Explore lead routing, contact updates and agent follow-up workflows.",
-        ],
-        [
-          "Zillow",
-          "Scope review",
-          "Discuss available lead delivery options for your account; listing data access is separate.",
-        ],
-        [
-          "Salesforce",
-          "Scope review",
-          "Explore connecting brokerage contact records and relationship pipelines.",
-        ],
-        [
-          "HubSpot",
-          "Scope review",
-          "Discuss contact synchronization and marketing-to-agent handoffs.",
-        ],
-      ]
-    : crms;
-  const [group, setGroup] = useState("All tools");
+  const allLabel = isHealthcare ? "All connections" : "All tools";
+  const directoryTools: DirectoryTool[] = isHealthcare
+    ? healthcareTools
+    : ((isRealEstate
+        ? tools
+            .filter((t) => !["LendingPad", "Bonzo"].includes(t.name))
+            .map(
+              (t) =>
+                ({
+                  ...t,
+                  group: t.group === "Mortgage & CRM" ? "Real estate & CRM" : t.group,
+                }) as DirectoryTool,
+            )
+        : (tools as DirectoryTool[])) as DirectoryTool[]);
+  const directoryGroups = isHealthcare
+    ? healthcareGroups
+    : isRealEstate
+      ? ["Real estate & CRM", "Marketing", "Operations", "Commerce & web"]
+      : Object.keys(groups);
+  const directoryCrms: [string, string, string][] = isHealthcare
+    ? healthcareCrms
+    : isRealEstate
+      ? ([
+          [
+            "Follow Up Boss",
+            "Scope review",
+            "Explore lead routing, contact updates and agent follow-up workflows.",
+          ],
+          [
+            "Zillow",
+            "Scope review",
+            "Discuss available lead delivery options for your account; listing data access is separate.",
+          ],
+          [
+            "Salesforce",
+            "Scope review",
+            "Explore connecting brokerage contact records and relationship pipelines.",
+          ],
+          [
+            "HubSpot",
+            "Scope review",
+            "Discuss contact synchronization and marketing-to-agent handoffs.",
+          ],
+        ] as [string, string, string][])
+      : crms;
+  const [group, setGroup] = useState(allLabel);
   const [query, setQuery] = useState("");
-  const [selected, setSelected] = useState(isRealEstate ? "Follow Up Boss" : "LendingPad");
+  const [selected, setSelected] = useState(
+    isHealthcare ? "4D EMR" : isRealEstate ? "Follow Up Boss" : "LendingPad",
+  );
   const visible = directoryTools.filter(
     (t) =>
-      (group === "All tools" || t.group === group) &&
+      (group === allLabel || t.group === group) &&
       t.name.toLowerCase().includes(query.toLowerCase().trim()),
   );
   const current = visible.find((t) => t.name === selected) || visible[0];
@@ -183,14 +260,16 @@ export function MortgageIntegrations({
           Connect what&apos;s next.
         </h2>
         <p>
-          {isRealEstate
-            ? "Explore your real estate and business toolkit. Select a logo to see where it fits in your workflow."
-            : "Explore your mortgage and business toolkit. Select a logo to see where it fits in your workflow."}
+          {isHealthcare
+            ? "Explore your healthcare and practice toolkit. Select a logo to see where it fits in your patient workflow."
+            : isRealEstate
+              ? "Explore your real estate and business toolkit. Select a logo to see where it fits in your workflow."
+              : "Explore your mortgage and business toolkit. Select a logo to see where it fits in your workflow."}
         </p>
       </div>
       <div className={s.directoryToolbar}>
         <div className={s.pills} aria-label="Filter integrations">
-          {["All tools", ...directoryGroups].map((g) => (
+          {[allLabel, ...directoryGroups].map((g) => (
             <button key={g} type="button" aria-pressed={group === g} onClick={() => setGroup(g)}>
               {g}
             </button>
@@ -209,7 +288,7 @@ export function MortgageIntegrations({
       <div className={s.directoryLayout}>
         <div>
           <p className={s.resultCount} role="status">
-            {visible.length} tools to explore
+            {visible.length} {isHealthcare ? "connections" : "tools"} to explore
           </p>
           <div className={s.logoGrid}>
             {visible.map((t) => (
@@ -229,7 +308,13 @@ export function MortgageIntegrations({
                     });
                 }}
               >
-                <img src={t.logo} alt="" width={40} height={40} loading="lazy" />
+                <img
+                  src={t.logo || "/placeholder-logo.svg"}
+                  alt=""
+                  width={40}
+                  height={40}
+                  loading="lazy"
+                />
                 <span>{t.name}</span>
               </button>
             ))}
@@ -241,7 +326,7 @@ export function MortgageIntegrations({
               <button
                 type="button"
                 onClick={() => {
-                  setGroup("All tools");
+                  setGroup(allLabel);
                   setQuery("");
                 }}
               >
@@ -258,19 +343,25 @@ export function MortgageIntegrations({
         >
           {current ? (
             <>
-              <img src={current.logo} width={64} height={64} alt="" />
-              <span className={s.eyebrow}>{current.group}</span>
+              <img src={current.logo || "/placeholder-logo.svg"} width={64} height={64} alt="" />
+              <span className={s.eyebrow}>{isHealthcare ? current.category : current.group}</span>
               <h3>{current.name}</h3>
               <p>
-                {current.group === "Real estate & CRM"
-                  ? "Explore connecting buyer and seller inquiries, contact records and agent pipeline activity. Lead access, field mapping, account permissions and sync direction are scoped during setup. MLS and IDX access require separate provider approval."
-                  : descriptions[current.group]}
+                {isHealthcare
+                  ? current.summary
+                  : current.group === "Real estate & CRM"
+                    ? "Explore connecting buyer and seller inquiries, contact records and agent pipeline activity. Lead access, field mapping, account permissions and sync direction are scoped during setup. MLS and IDX access require separate provider approval."
+                    : descriptions[current.group]}
               </p>
+              {isHealthcare && current.description && (
+                <p className={s.note}>{current.description}</p>
+              )}
               <div>
                 <strong>Configured for your workflow</strong>
                 <p>
-                  Native, Zapier or webhook availability depends on the tool, plan and account
-                  permissions. Confirm your use case with our team.
+                  {isHealthcare
+                    ? "Native, Zapier or webhook availability depends on the tool, plan and account permissions. HIPAA readiness depends on configuration and a Business Associate Agreement; confirm your use case with our team."
+                    : "Native, Zapier or webhook availability depends on the tool, plan and account permissions. Confirm your use case with our team."}
                 </p>
               </div>
               <a className={s.textLink} href="/schedule-demo">
@@ -283,7 +374,13 @@ export function MortgageIntegrations({
         </aside>
       </div>
       <div className={s.crmHeading}>
-        <h3>{isRealEstate ? "Already have a real estate CRM?" : "Already have a mortgage CRM?"}</h3>
+        <h3>
+          {isHealthcare
+            ? "Already have a practice management or EMR system?"
+            : isRealEstate
+              ? "Already have a real estate CRM?"
+              : "Already have a mortgage CRM?"}
+        </h3>
         <p>
           Layer in relationship automation without starting over. Open a platform to explore its
           role and connection path.
@@ -304,8 +401,9 @@ export function MortgageIntegrations({
         ))}
       </div>
       <p className={s.note}>
-        Logos identify third-party products, not endorsements. Connection availability and supported
-        fields must be confirmed before implementation.
+        {isHealthcare
+          ? "Logos identify third-party products, not endorsements. Connection availability and supported fields must be confirmed before implementation. HIPAA compliance depends on configuration, appropriate agreements and how data is used; advertising tools should not receive protected health information."
+          : "Logos identify third-party products, not endorsements. Connection availability and supported fields must be confirmed before implementation."}
       </p>
     </section>
   );
