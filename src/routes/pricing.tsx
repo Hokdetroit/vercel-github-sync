@@ -223,6 +223,13 @@ const COMPARISON: ComparisonGroup[] = [
   },
 ];
 
+const PLAN_COLUMNS = [
+  { id: "growth", name: "Growth", price: "$97 / mo" },
+  { id: "scale", name: "Scale", price: "$197 / mo" },
+  { id: "medical", name: "Medical Suite", price: "$597 / loc" },
+  { id: "mortgage", name: "Mortgage Suite", price: "$197 / mo" },
+] as const;
+
 const USAGE_ITEMS = [
   {
     title: "Messaging",
@@ -441,6 +448,9 @@ function PricingPage() {
                 </tbody>
               </table>
             </div>
+
+            {/* Mobile plan-by-plan comparison */}
+            <MobileCompare />
           </section>
 
           {/* Pay for What You Actually Use */}
@@ -518,4 +528,52 @@ function RenderCellValue({ val }: { val: TableValue }) {
     return <Minus size={16} strokeWidth={1.5} className={s.iconNotIncluded} />;
   }
   return <span className={s.valueText}>{val}</span>;
+}
+
+function MobileCompare() {
+  const [active, setActive] = useState(0);
+  const col = PLAN_COLUMNS[active];
+
+  return (
+    <div className={s.mobileCompare} aria-label="Plan comparison">
+      <div className={s.mobileTabs} role="tablist" aria-label="Choose a plan to compare">
+        {PLAN_COLUMNS.map((p, i) => (
+          <button
+            key={p.id}
+            type="button"
+            role="tab"
+            aria-selected={i === active}
+            className={s.mobileTab}
+            onClick={() => setActive(i)}
+          >
+            {p.name}
+          </button>
+        ))}
+      </div>
+
+      <div className={s.mobilePlanCard} role="tabpanel">
+        <div className={s.mobilePlanHead}>
+          <span className={s.mobilePlanName}>{col.name}</span>
+          <span className={s.mobilePlanPrice}>{col.price}</span>
+        </div>
+        <div className={s.mobilePlanBody}>
+          {COMPARISON.map((group) => (
+            <div key={group.group} className={s.mobileGroup}>
+              <span className={s.mobileGroupLabel}>{group.group}</span>
+              <dl className={s.mobileRows}>
+                {group.rows.map((row) => (
+                  <div key={row.name} className={s.mobileRow}>
+                    <dt>{row.name}</dt>
+                    <dd>
+                      <RenderCellValue val={row[col.id]} />
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }

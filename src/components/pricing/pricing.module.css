@@ -636,3 +636,160 @@
   background: rgba(255, 255, 255, 0.12);
   border-color: #ffffff;
 }
+
+/* ---- Mobile comparison: segmented plan switcher ---- */
+.mobileCompare {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 96px 20px 64px;
+  }
+  .sheet {
+    padding: 48px 20px 72px;
+  }
+  .compareSection,
+  .usageSection,
+  .faqSection {
+    margin-top: 64px;
+  }
+  .sectionHead {
+    margin-bottom: 32px;
+  }
+  .card {
+    padding: 26px 22px;
+  }
+  .closing {
+    padding: 64px 20px;
+  }
+  .faqSection {
+    padding-top: 32px;
+  }
+
+  /* hide the wide 5-column table, show stacked plan cards */
+  .tableWrap {
+    display: none;
+  }
+  .mobileCompare {
+    display: block;
+  }
+  .mobileTabs {
+    display: flex;
+    gap: 6px;
+    padding: 5px;
+    background: var(--soft, #f4f6f7);
+    border: 1px solid var(--line, #e3e3e3);
+    border-radius: 14px;
+    margin-bottom: 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .mobileTabs::-webkit-scrollbar {
+    display: none;
+  }
+  .mobileTab {
+    flex: 1 1 0;
+    white-space: nowrap;
+    border: 0;
+    background: transparent;
+    color: var(--grey, #6b6b6b);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition:
+      background 0.18s ease,
+      color 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+  .mobileTab[aria-selected="true"] {
+    background: #ffffff;
+    color: var(--ink, #1a1a1a);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  .mobilePlanCard {
+    background: #ffffff;
+    border: 1px solid var(--line, #e3e3e3);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .mobilePlanHead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid var(--line, #e3e3e3);
+    background: #fafbfc;
+  }
+  .mobilePlanName {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink, #1a1a1a);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  .mobilePlanPrice {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--blue, #317ea6);
+    white-space: nowrap;
+  }
+  .mobilePlanBody {
+    padding: 4px 20px 18px;
+  }
+  .mobileGroup {
+    padding-bottom: 4px;
+  }
+  .mobileGroupLabel {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--blue, #317ea6);
+    padding: 16px 0 4px;
+  }
+  .mobileGroup:first-child .mobileGroupLabel {
+    padding-top: 8px;
+  }
+  .mobileRows {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobileRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 11px 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--line, #e3e3e3) 65%, transparent);
+  }
+  .mobileRow:last-child {
+    border-bottom: 0;
+  }
+  .mobileRow dt {
+    margin: 0;
+    flex: 1 1 auto;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--ink, #1a1a1a);
+    font-weight: 500;
+  }
+  .mobileRow dd {
+    margin: 0;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 72px;
+    text-align: right;
+  }
+  .mobileRow dd .valueText {
+    font-size: 13px;
+  }
+}
