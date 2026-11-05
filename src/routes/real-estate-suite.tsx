@@ -18,12 +18,9 @@ export const Route = createFileRoute("/real-estate-suite")({
   component: PageComponent,
 });
 
-import { RealEstatePage } from '@/components/real-estate/real-estate-page'
-import { routeMetadata } from '@/lib/routes'
-
-
+import { RealEstatePage } from "@/components/real-estate/real-estate-page";
+import { routeMetadata } from "@/lib/routes";
 
 function PageComponent() {
-  return <RealEstatePage />
+  return <RealEstatePage />;
 }
-

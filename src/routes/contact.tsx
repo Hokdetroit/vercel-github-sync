@@ -18,12 +18,10 @@ export const Route = createFileRoute("/contact")({
   component: PageComponent,
 });
 
-import { LeadForm } from '@/components/site/lead-form'
-import { ClosingCta, PageHero, Sheet } from '@/components/site/sections'
-import styles from '@/components/site/site.module.css'
-import { href, routeMetadata } from '@/lib/routes'
-
-
+import { LeadForm } from "@/components/site/lead-form";
+import { ClosingCta, PageHero, Sheet } from "@/components/site/sections";
+import styles from "@/components/site/site.module.css";
+import { href, routeMetadata } from "@/lib/routes";
 
 function PageComponent() {
   return (
@@ -58,8 +56,11 @@ function PageComponent() {
           </div>
         </section>
       </Sheet>
-      <ClosingCta title="Want to see the platform?" strong="Book a walkthrough." secondary={{ href: href('faq'), label: 'Read the FAQ' }} />
+      <ClosingCta
+        title="Want to see the platform?"
+        strong="Book a walkthrough."
+        secondary={{ href: href("faq"), label: "Read the FAQ" }}
+      />
     </main>
-  )
+  );
 }
-

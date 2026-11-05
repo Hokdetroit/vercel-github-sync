@@ -1,24 +1,36 @@
-'use client'
+"use client";
 
-import { useState, type FormEvent } from 'react'
-import { ArrowIcon } from './link-button'
-import styles from './site.module.css'
+import { useState, type FormEvent } from "react";
+import { ArrowIcon } from "./link-button";
+import styles from "./site.module.css";
 
-const BUSINESS_TYPES = ['Healthcare practice', 'Mortgage or real estate', 'Agency or consultant', 'Home services', 'Other']
-const INTERESTS = ['Core Platform', 'AI and Automation', 'Workforce', 'Medical Suite', 'Custom build']
+const BUSINESS_TYPES = [
+  "Healthcare practice",
+  "Mortgage or real estate",
+  "Agency or consultant",
+  "Home services",
+  "Other",
+];
+const INTERESTS = [
+  "Core Platform",
+  "AI and Automation",
+  "Workforce",
+  "Medical Suite",
+  "Custom build",
+];
 
-export function LeadForm({ variant }: { variant: 'demo' | 'contact' }) {
-  const [submitted, setSubmitted] = useState(false)
-  const isDemo = variant === 'demo'
-  const prefix = `${variant}-`
+export function LeadForm({ variant }: { variant: "demo" | "contact" }) {
+  const [submitted, setSubmitted] = useState(false);
+  const isDemo = variant === "demo";
+  const prefix = `${variant}-`;
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-    const data = new FormData(event.currentTarget)
-    const payload = { ...Object.fromEntries(data.entries()), interests: data.getAll('interests') }
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const payload = { ...Object.fromEntries(data.entries()), interests: data.getAll("interests") };
     // TODO: connect to Studio Escrow CRM pipeline
-    console.log(`[${variant} form] placeholder submission`, payload)
-    setSubmitted(true)
+    console.log(`[${variant} form] placeholder submission`, payload);
+    setSubmitted(true);
   }
 
   if (submitted) {
@@ -27,30 +39,47 @@ export function LeadForm({ variant }: { variant: 'demo' | 'contact' }) {
         <h2 className="ma3IoW_h4">Thank you. We received your details.</h2>
         <p className="ma3IoW_bodyM ma3IoW_grey">
           {isDemo
-            ? 'The Studio Escrow team will reach out to schedule your demo.'
-            : 'The Studio Escrow team will get back to you.'}
+            ? "The Studio Escrow team will reach out to schedule your demo."
+            : "The Studio Escrow team will get back to you."}
         </p>
         <button type="button" className={styles.textButton} onClick={() => setSubmitted(false)}>
           Send another response
         </button>
       </div>
-    )
+    );
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit} aria-label={isDemo ? 'Book a demo' : 'Contact Studio Escrow'}>
+    <form
+      className={styles.form}
+      onSubmit={handleSubmit}
+      aria-label={isDemo ? "Book a demo" : "Contact Studio Escrow"}
+    >
       <div className={styles.fieldRow}>
         <div className={styles.field}>
           <label className={styles.label} htmlFor={`${prefix}name`}>
             Full name
           </label>
-          <input className={styles.input} id={`${prefix}name`} name="fullName" autoComplete="name" required />
+          <input
+            className={styles.input}
+            id={`${prefix}name`}
+            name="fullName"
+            autoComplete="name"
+            required
+          />
         </div>
         <div className={styles.field}>
           <label className={styles.label} htmlFor={`${prefix}email`}>
-            {isDemo ? 'Work email' : 'Email'}
+            {isDemo ? "Work email" : "Email"}
           </label>
-          <input className={styles.input} id={`${prefix}email`} name="email" type="email" autoComplete="email" required />
+          <input
+            className={styles.input}
+            id={`${prefix}email`}
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+          />
         </div>
       </div>
 
@@ -59,14 +88,26 @@ export function LeadForm({ variant }: { variant: 'demo' | 'contact' }) {
           <label className={styles.label} htmlFor={`${prefix}phone`}>
             Phone <span className={styles.optional}>(optional)</span>
           </label>
-          <input className={styles.input} id={`${prefix}phone`} name="phone" type="tel" autoComplete="tel" />
+          <input
+            className={styles.input}
+            id={`${prefix}phone`}
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+          />
         </div>
         {isDemo ? (
           <div className={styles.field}>
             <label className={styles.label} htmlFor={`${prefix}business`}>
               Business name
             </label>
-            <input className={styles.input} id={`${prefix}business`} name="businessName" autoComplete="organization" required />
+            <input
+              className={styles.input}
+              id={`${prefix}business`}
+              name="businessName"
+              autoComplete="organization"
+              required
+            />
           </div>
         ) : null}
       </div>
@@ -77,7 +118,13 @@ export function LeadForm({ variant }: { variant: 'demo' | 'contact' }) {
             <label className={styles.label} htmlFor={`${prefix}type`}>
               Business type
             </label>
-            <select className={styles.input} id={`${prefix}type`} name="businessType" required defaultValue="">
+            <select
+              className={styles.input}
+              id={`${prefix}type`}
+              name="businessType"
+              required
+              defaultValue=""
+            >
               <option value="" disabled>
                 Select your business type
               </option>
@@ -105,7 +152,8 @@ export function LeadForm({ variant }: { variant: 'demo' | 'contact' }) {
 
       <div className={styles.field}>
         <label className={styles.label} htmlFor={`${prefix}message`}>
-          {isDemo ? 'Short message' : 'Message'} {isDemo ? <span className={styles.optional}>(optional)</span> : null}
+          {isDemo ? "Short message" : "Message"}{" "}
+          {isDemo ? <span className={styles.optional}>(optional)</span> : null}
         </label>
         <textarea
           className={styles.input}
@@ -128,11 +176,11 @@ export function LeadForm({ variant }: { variant: 'demo' | 'contact' }) {
       </label>
 
       <button type="submit" className={`ma3IoW_link ma3IoW_link_pill ${styles.submit}`}>
-        <span>{isDemo ? 'Book a demo' : 'Send message'}</span>
+        <span>{isDemo ? "Book a demo" : "Send message"}</span>
         <span className="ma3IoW_linkIcon">
           <ArrowIcon />
         </span>
       </button>
     </form>
-  )
+  );
 }

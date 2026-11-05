@@ -18,12 +18,9 @@ export const Route = createFileRoute("/medical-suite")({
   component: PageComponent,
 });
 
-import { SuitePage } from '@/components/suites/suite-page'
-import { routeMetadata } from '@/lib/routes'
-
-
+import { SuitePage } from "@/components/suites/suite-page";
+import { routeMetadata } from "@/lib/routes";
 
 function PageComponent() {
-  return <SuitePage kind="medical" />
+  return <SuitePage kind="medical" />;
 }
-

@@ -18,23 +18,21 @@ export const Route = createFileRoute("/compare")({
   component: PageComponent,
 });
 
-import { ClosingCta, PageHero, Section, Sheet } from '@/components/site/sections'
-import styles from '@/components/site/site.module.css'
-import { href, routeMetadata } from '@/lib/routes'
-
-
+import { ClosingCta, PageHero, Section, Sheet } from "@/components/site/sections";
+import styles from "@/components/site/site.module.css";
+import { href, routeMetadata } from "@/lib/routes";
 
 const ROWS = [
-  'CRM and contacts',
-  'Messaging inbox',
-  'Websites and funnels',
-  'Calendars and booking',
-  'Workflow automation',
-  'AI tools',
-  'Reporting',
-  'Number of vendors and bills',
-  'Setup and support',
-]
+  "CRM and contacts",
+  "Messaging inbox",
+  "Websites and funnels",
+  "Calendars and booking",
+  "Workflow automation",
+  "AI tools",
+  "Reporting",
+  "Number of vendors and bills",
+  "Setup and support",
+];
 
 function PageComponent() {
   return (
@@ -49,10 +47,12 @@ function PageComponent() {
         <Section id="compare-title" title="Studio Escrow vs. using separate tools">
           <div className="lP4odW_tableWrap" data-reveal="true">
             <table className="lP4odW_table">
-              <caption className="sr-only">Studio Escrow compared with using separate tools</caption>
+              <caption className="sr-only">
+                Studio Escrow compared with using separate tools
+              </caption>
               <thead>
                 <tr>
-                  <th scope="col" style={{ textAlign: 'left' }}>
+                  <th scope="col" style={{ textAlign: "left" }}>
                     <span className="lP4odW_thName">Area</span>
                   </th>
                   <th scope="col" className="lP4odW_colFeatured">
@@ -83,9 +83,8 @@ function PageComponent() {
       <ClosingCta
         title="See the difference for yourself."
         strong="Book a demo."
-        secondary={{ href: href('calculator'), label: 'Try the calculator' }}
+        secondary={{ href: href("calculator"), label: "Try the calculator" }}
       />
     </main>
-  )
+  );
 }
-

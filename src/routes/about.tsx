@@ -18,32 +18,39 @@ export const Route = createFileRoute("/about")({
   component: PageComponent,
 });
 
-import { CardGrid, ClosingCta, PageHero, Section, Sheet } from '@/components/site/sections'
-import styles from '@/components/site/site.module.css'
-import { href, routeMetadata } from '@/lib/routes'
-
-
+import { CardGrid, ClosingCta, PageHero, Section, Sheet } from "@/components/site/sections";
+import styles from "@/components/site/site.module.css";
+import { href, routeMetadata } from "@/lib/routes";
 
 const PILLARS = [
-  { title: 'CRM', body: 'Contacts, pipelines and every conversation in one record.' },
-  { title: 'AI agents', body: 'Reception, follow-up and conversation support you configure and review.' },
-  { title: 'Automation', body: 'Multi-step workflows that keep work moving between tools and teams.' },
-  { title: 'Workforce operations', body: 'Coordinate the people and tasks behind the work.' },
-  { title: 'Websites', body: 'Pages and funnels that route leads straight into your CRM.' },
-  { title: 'Healthcare systems', body: 'The Medical Suite, HIPAA-ready with a Business Associate Agreement available.' },
-]
+  { title: "CRM", body: "Contacts, pipelines and every conversation in one record." },
+  {
+    title: "AI agents",
+    body: "Reception, follow-up and conversation support you configure and review.",
+  },
+  {
+    title: "Automation",
+    body: "Multi-step workflows that keep work moving between tools and teams.",
+  },
+  { title: "Workforce operations", body: "Coordinate the people and tasks behind the work." },
+  { title: "Websites", body: "Pages and funnels that route leads straight into your CRM." },
+  {
+    title: "Healthcare systems",
+    body: "The Medical Suite, HIPAA-ready with a Business Associate Agreement available.",
+  },
+];
 
 const AUDIENCES = [
-  'Real estate',
-  'Mortgage',
-  'Medical and wellness',
-  'Home services',
-  'Agencies',
-  'E-commerce',
-  'Restaurants',
-  'Events',
-  'Professional services',
-]
+  "Real estate",
+  "Mortgage",
+  "Medical and wellness",
+  "Home services",
+  "Agencies",
+  "E-commerce",
+  "Restaurants",
+  "Events",
+  "Professional services",
+];
 
 function PageComponent() {
   return (
@@ -80,8 +87,8 @@ function PageComponent() {
         <Section id="hok-title" title="Built by House of Karma">
           <div className={styles.prose} data-reveal="true">
             <p className="ma3IoW_bodyL">
-              Studio Escrow is built by House of Karma, the team that also delivers its done-for-you buildouts: branding,
-              websites, CRM setup and lead-source connections.
+              Studio Escrow is built by House of Karma, the team that also delivers its done-for-you
+              buildouts: branding, websites, CRM setup and lead-source connections.
             </p>
           </div>
         </Section>
@@ -89,9 +96,8 @@ function PageComponent() {
       <ClosingCta
         title="See how it fits your business."
         strong="Book a demo with our team."
-        secondary={{ href: href('features'), label: 'Explore features' }}
+        secondary={{ href: href("features"), label: "Explore features" }}
       />
     </main>
-  )
+  );
 }
-

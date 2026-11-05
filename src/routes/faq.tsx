@@ -18,19 +18,21 @@ export const Route = createFileRoute("/faq")({
   component: PageComponent,
 });
 
-import { ClosingCta, FaqGroup, PageHero, Sheet } from '@/components/site/sections'
-import { faqGroups } from '@/lib/faq'
-import { href, routeMetadata } from '@/lib/routes'
-
-
+import { ClosingCta, FaqGroup, PageHero, Sheet } from "@/components/site/sections";
+import { faqGroups } from "@/lib/faq";
+import { href, routeMetadata } from "@/lib/routes";
 
 const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
   mainEntity: faqGroups.flatMap((g) =>
-    g.items.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })),
+    g.items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
   ),
-}
+};
 
 function PageComponent() {
   return (
@@ -49,10 +51,12 @@ function PageComponent() {
       <ClosingCta
         title="Still have questions?"
         strong="We will map it with you."
-        secondary={{ href: href('contact'), label: 'Contact us' }}
+        secondary={{ href: href("contact"), label: "Contact us" }}
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </main>
-  )
+  );
 }
-

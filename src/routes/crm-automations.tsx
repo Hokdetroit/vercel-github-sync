@@ -18,9 +18,9 @@ export const Route = createFileRoute("/crm-automations")({
   component: PageComponent,
 });
 
-import { LeadsChart, ResponseChart } from '@/components/crm/charts'
-import styles from '@/components/crm/crm.module.css'
-import { HorizontalScroll } from '@/components/crm/horizontal-scroll'
+import { LeadsChart, ResponseChart } from "@/components/crm/charts";
+import styles from "@/components/crm/crm.module.css";
+import { HorizontalScroll } from "@/components/crm/horizontal-scroll";
 import {
   Band,
   ChartPanel,
@@ -32,11 +32,9 @@ import {
   TimingIntro,
   WhatPanel,
   WhyPanel,
-} from '@/components/crm/sections'
-import { WorkflowRoadmap } from '@/components/crm/workflow-roadmap'
-import { routeMetadata } from '@/lib/routes'
-
-
+} from "@/components/crm/sections";
+import { WorkflowRoadmap } from "@/components/crm/workflow-roadmap";
+import { routeMetadata } from "@/lib/routes";
 
 function PageComponent() {
   return (
@@ -57,12 +55,13 @@ function PageComponent() {
         </ChartPanel>
         <ChartPanel>
           <ResponseChart />
-          <p className={styles.chartNote}>Illustrative model for explanation only. Not measured customer data.</p>
+          <p className={styles.chartNote}>
+            Illustrative model for explanation only. Not measured customer data.
+          </p>
         </ChartPanel>
       </HorizontalScroll>
       <Band />
       <ContactBubbles />
     </main>
-  )
+  );
 }
-

@@ -57,7 +57,7 @@
   opacity: 0.8;
 }
 
-.breadcrumb li[aria-current='page'] {
+.breadcrumb li[aria-current="page"] {
   opacity: 1;
 }
 
