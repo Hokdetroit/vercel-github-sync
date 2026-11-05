@@ -64,6 +64,15 @@ export const routes = {
     status: "built",
     source: "app",
   },
+  aiAgents: {
+    path: "/ai-agents",
+    name: "AI Agents",
+    title: "AI Agents | Studio Escrow",
+    description:
+      "AI agents that triage, respond, resolve and escalate — handling repeatable conversations around the clock while your team stays in control.",
+    status: "built",
+    source: "app",
+  },
   aiStudio: {
     path: "/ai-studio",
     name: "AI Studio",

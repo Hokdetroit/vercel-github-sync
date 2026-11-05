@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AiAgentsRouteImport } from './routes/ai-agents'
 import { Route as AiStudioRouteImport } from './routes/ai-studio'
 import { Route as CalculatorRouteImport } from './routes/calculator'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
@@ -45,6 +46,11 @@ const SplatRoute = SplatRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiAgentsRoute = AiAgentsRouteImport.update({
+  id: '/ai-agents',
+  path: '/ai-agents',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiStudioRoute = AiStudioRouteImport.update({
@@ -147,6 +153,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
+  '/ai-agents': typeof AiAgentsRoute
   '/ai-studio': typeof AiStudioRoute
   '/calculator': typeof CalculatorRoute
   '/case-studies': typeof CaseStudiesRoute
@@ -171,6 +178,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
+  '/ai-agents': typeof AiAgentsRoute
   '/ai-studio': typeof AiStudioRoute
   '/calculator': typeof CalculatorRoute
   '/case-studies': typeof CaseStudiesRoute
@@ -196,6 +204,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
+  '/ai-agents': typeof AiAgentsRoute
   '/ai-studio': typeof AiStudioRoute
   '/calculator': typeof CalculatorRoute
   '/case-studies': typeof CaseStudiesRoute
@@ -222,6 +231,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$'
     | '/about'
+    | '/ai-agents'
     | '/ai-studio'
     | '/calculator'
     | '/case-studies'
@@ -246,6 +256,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$'
     | '/about'
+    | '/ai-agents'
     | '/ai-studio'
     | '/calculator'
     | '/case-studies'
@@ -270,6 +281,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$'
     | '/about'
+    | '/ai-agents'
     | '/ai-studio'
     | '/calculator'
     | '/case-studies'
@@ -295,6 +307,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SplatRoute: typeof SplatRoute
   AboutRoute: typeof AboutRoute
+  AiAgentsRoute: typeof AiAgentsRoute
   AiStudioRoute: typeof AiStudioRoute
   CalculatorRoute: typeof CalculatorRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
@@ -337,6 +350,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-agents': {
+      id: '/ai-agents'
+      path: '/ai-agents'
+      fullPath: '/ai-agents'
+      preLoaderRoute: typeof AiAgentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai-studio': {
@@ -479,6 +499,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
   AboutRoute: AboutRoute,
+  AiAgentsRoute: AiAgentsRoute,
   AiStudioRoute: AiStudioRoute,
   CalculatorRoute: CalculatorRoute,
   CaseStudiesRoute: CaseStudiesRoute,
