@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { routes } from "@/lib/routes";
 import { Check, Minus, ArrowRight, ChevronDown, Plus } from "lucide-react";
 import s from "@/components/pricing/pricing.module.css";
@@ -411,7 +411,7 @@ function PricingPage() {
                 </thead>
                 <tbody>
                   {COMPARISON.map((group) => (
-                    <tbody key={group.group}>
+                    <Fragment key={group.group}>
                       <tr className={s.groupRow}>
                         <th scope="colgroup" colSpan={5}>
                           {group.group}
@@ -436,7 +436,7 @@ function PricingPage() {
                           </td>
                         </tr>
                       ))}
-                    </tbody>
+                    </Fragment>
                   ))}
                 </tbody>
               </table>
