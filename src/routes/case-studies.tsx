@@ -18,15 +18,13 @@ export const Route = createFileRoute("/case-studies")({
   component: PageComponent,
 });
 
-import { CardGrid, ClosingCta, PageHero, Section, Sheet } from '@/components/site/sections'
-import { href, routeMetadata } from '@/lib/routes'
-
-
+import { CardGrid, ClosingCta, PageHero, Section, Sheet } from "@/components/site/sections";
+import { href, routeMetadata } from "@/lib/routes";
 
 const PLACEHOLDERS = [1, 2, 3].map(() => ({
-  title: 'Case study coming soon',
-  meta: 'This story is being prepared.',
-}))
+  title: "Case study coming soon",
+  meta: "This story is being prepared.",
+}));
 
 function PageComponent() {
   return (
@@ -45,9 +43,8 @@ function PageComponent() {
       <ClosingCta
         title="Want to see it in action?"
         strong="Book a demo."
-        secondary={{ href: href('features'), label: 'Explore features' }}
+        secondary={{ href: href("features"), label: "Explore features" }}
       />
     </main>
-  )
+  );
 }
-

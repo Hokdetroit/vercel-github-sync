@@ -18,12 +18,9 @@ export const Route = createFileRoute("/mortgage-suite")({
   component: PageComponent,
 });
 
-import { MortgagePage } from '@/components/mortgage/mortgage-page'
-import { routeMetadata } from '@/lib/routes'
-
-
+import { MortgagePage } from "@/components/mortgage/mortgage-page";
+import { routeMetadata } from "@/lib/routes";
 
 function PageComponent() {
-  return <MortgagePage />
+  return <MortgagePage />;
 }
-

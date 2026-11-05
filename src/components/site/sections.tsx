@@ -1,8 +1,8 @@
-import type { CSSProperties, ReactNode } from 'react'
-import { href, type RouteId } from '@/lib/routes'
-import { Breadcrumbs } from './breadcrumbs'
-import { LinkButton } from './link-button'
-import styles from './site.module.css'
+import type { CSSProperties, ReactNode } from "react";
+import { href, type RouteId } from "@/lib/routes";
+import { Breadcrumbs } from "./breadcrumbs";
+import { LinkButton } from "./link-button";
+import styles from "./site.module.css";
 
 /** Blue hero — same markup as the /pricing hero. */
 export function PageHero({
@@ -12,11 +12,11 @@ export function PageHero({
   sub,
   children,
 }: {
-  routeId: RouteId
-  eyebrow: string
-  title: ReactNode
-  sub?: ReactNode
-  children?: ReactNode
+  routeId: RouteId;
+  eyebrow: string;
+  title: ReactNode;
+  sub?: ReactNode;
+  children?: ReactNode;
 }) {
   return (
     <section className="lP4odW_hero" aria-labelledby="page-title">
@@ -36,7 +36,7 @@ export function PageHero({
         {children}
       </div>
     </section>
-  )
+  );
 }
 
 /** White rounded sheet that overlaps the hero. */
@@ -45,7 +45,7 @@ export function Sheet({ children }: { children: ReactNode }) {
     <div className="ma3IoW_sheet">
       <div className={styles.sheetBody}>{children}</div>
     </div>
-  )
+  );
 }
 
 export function Section({
@@ -54,10 +54,10 @@ export function Section({
   intro,
   children,
 }: {
-  id: string
-  title: ReactNode
-  intro?: ReactNode
-  children?: ReactNode
+  id: string;
+  title: ReactNode;
+  intro?: ReactNode;
+  children?: ReactNode;
 }) {
   return (
     <section className="lP4odW_usage" aria-labelledby={id}>
@@ -71,24 +71,32 @@ export function Section({
         {children}
       </div>
     </section>
-  )
+  );
 }
 
 export interface CardItem {
-  title: string
-  body?: ReactNode
-  index?: string
-  meta?: ReactNode
+  title: string;
+  body?: ReactNode;
+  index?: string;
+  meta?: ReactNode;
 }
 
-export function CardGrid({ items, columns = 4, tall = false }: { items: CardItem[]; columns?: 3 | 4; tall?: boolean }) {
+export function CardGrid({
+  items,
+  columns = 4,
+  tall = false,
+}: {
+  items: CardItem[];
+  columns?: 3 | 4;
+  tall?: boolean;
+}) {
   return (
-    <ul className={`lP4odW_usageGrid ${columns === 3 ? styles.grid3 : ''}`}>
+    <ul className={`lP4odW_usageGrid ${columns === 3 ? styles.grid3 : ""}`}>
       {items.map((item, i) => (
         <li
           key={item.title + i}
-          className={`lP4odW_usageItem ${tall ? styles.cardTall : ''}`}
-          style={{ '--i': i } as CSSProperties}
+          className={`lP4odW_usageItem ${tall ? styles.cardTall : ""}`}
+          style={{ "--i": i } as CSSProperties}
           data-reveal="true"
         >
           <div className={styles.stack}>
@@ -100,7 +108,7 @@ export function CardGrid({ items, columns = 4, tall = false }: { items: CardItem
         </li>
       ))}
     </ul>
-  )
+  );
 }
 
 /** Closing CTA — same markup as the /pricing closing section. Always links to /schedule-demo. */
@@ -110,10 +118,10 @@ export function ClosingCta({
   secondary,
   showDemo = true,
 }: {
-  title: string
-  strong: string
-  secondary?: { href: string; label: string }
-  showDemo?: boolean
+  title: string;
+  strong: string;
+  secondary?: { href: string; label: string };
+  showDemo?: boolean;
 }) {
   return (
     <section className="lP4odW_closing" aria-labelledby="closing-title">
@@ -122,7 +130,7 @@ export function ClosingCta({
           {title} <strong>{strong}</strong>
         </h2>
         <div className="lP4odW_closingActions">
-          {showDemo ? <LinkButton href={href('scheduleDemo')}>Book a demo</LinkButton> : null}
+          {showDemo ? <LinkButton href={href("scheduleDemo")}>Book a demo</LinkButton> : null}
           {secondary ? (
             <LinkButton href={secondary.href} variant="ghost">
               {secondary.label}
@@ -131,12 +139,12 @@ export function ClosingCta({
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export interface FaqEntry {
-  q: string
-  a: string
+  q: string;
+  a: string;
 }
 
 /** Accordion — same markup as the /pricing FAQ. */
@@ -160,5 +168,5 @@ export function FaqGroup({ id, title, items }: { id: string; title: string; item
         </div>
       </div>
     </section>
-  )
+  );
 }

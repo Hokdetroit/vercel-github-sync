@@ -18,23 +18,27 @@ export const Route = createFileRoute("/enterprise-pricing")({
   component: PageComponent,
 });
 
-import { CardGrid, ClosingCta, PageHero, Section, Sheet } from '@/components/site/sections'
-import { href, routeMetadata } from '@/lib/routes'
-
-
+import { CardGrid, ClosingCta, PageHero, Section, Sheet } from "@/components/site/sections";
+import { href, routeMetadata } from "@/lib/routes";
 
 const AUDIENCE = [
-  { title: 'Larger teams', body: 'Organizations that need more than a standard plan provides.' },
-  { title: 'Multi-location groups', body: 'Practices and businesses operating across several locations.' },
-  { title: 'Complex stacks', body: 'Teams with existing systems that need to connect cleanly.' },
-]
+  { title: "Larger teams", body: "Organizations that need more than a standard plan provides." },
+  {
+    title: "Multi-location groups",
+    body: "Practices and businesses operating across several locations.",
+  },
+  { title: "Complex stacks", body: "Teams with existing systems that need to connect cleanly." },
+];
 
 const CUSTOM = [
-  { title: 'Multi-location', body: 'Structure accounts, pipelines and reporting across locations.' },
-  { title: 'Custom integrations', body: 'Connect the systems your teams already depend on.' },
-  { title: 'Custom portals', body: 'Portals shaped around your customers, clients or patients.' },
-  { title: 'Dedicated onboarding', body: 'A guided rollout planned with your team.' },
-]
+  {
+    title: "Multi-location",
+    body: "Structure accounts, pipelines and reporting across locations.",
+  },
+  { title: "Custom integrations", body: "Connect the systems your teams already depend on." },
+  { title: "Custom portals", body: "Portals shaped around your customers, clients or patients." },
+  { title: "Dedicated onboarding", body: "A guided rollout planned with your team." },
+];
 
 function PageComponent() {
   return (
@@ -56,9 +60,8 @@ function PageComponent() {
       <ClosingCta
         title="Let's scope your plan."
         strong="Book a demo with our team."
-        secondary={{ href: href('pricing'), label: 'See standard plans' }}
+        secondary={{ href: href("pricing"), label: "See standard plans" }}
       />
     </main>
-  )
+  );
 }
-

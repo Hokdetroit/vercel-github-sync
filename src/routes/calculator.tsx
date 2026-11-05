@@ -18,11 +18,9 @@ export const Route = createFileRoute("/calculator")({
   component: PageComponent,
 });
 
-import { SavingsCalculator } from '@/components/site/savings-calculator'
-import { ClosingCta, PageHero, Sheet } from '@/components/site/sections'
-import { href, routeMetadata } from '@/lib/routes'
-
-
+import { SavingsCalculator } from "@/components/site/savings-calculator";
+import { ClosingCta, PageHero, Sheet } from "@/components/site/sections";
+import { href, routeMetadata } from "@/lib/routes";
 
 function PageComponent() {
   return (
@@ -43,9 +41,8 @@ function PageComponent() {
       <ClosingCta
         title="Want a real number?"
         strong="We will build your quote with you."
-        secondary={{ href: href('pricing'), label: 'See pricing' }}
+        secondary={{ href: href("pricing"), label: "See pricing" }}
       />
     </main>
-  )
+  );
 }
-

@@ -114,7 +114,7 @@ export function WalkthroughModal({
     );
   }
 
-  const current = active.steps[step] ?? active.steps[0]!;
+  const current = active.steps[step] ?? active.steps[0];
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -205,9 +205,7 @@ function ReceptionistScene({ step }: { step: number }) {
       { who: "in", text: "Call ended · lead routed to inbox" },
     ],
   ];
-  const lines = transcript[step] ?? transcript[0]!;
-  if (!lines) return null;
-
+  const lines = transcript[step] ?? transcript[0];
   return (
     <div className="mock mock-phone">
       <div className="mock-phone-bar">
@@ -251,9 +249,7 @@ function InboxScene({ step }: { step: number }) {
     { name: "Tom K.", channel: "email", preview: "Re: onboarding docs", unread: true },
     { name: "Lina P.", channel: "ig", preview: "DM — pricing for peptide plan", unread: false },
   ];
-  const selected = threads[step % threads.length] ?? threads[0]!;
-  if (!selected) return null;
-
+  const selected = threads[step % threads.length] ?? threads[0];
   return (
     <div className="mock mock-inbox">
       <div className="mock-inbox-sidebar">

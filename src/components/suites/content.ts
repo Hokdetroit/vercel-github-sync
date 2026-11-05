@@ -1,71 +1,195 @@
 export const suites = {
   medical: {
-    name: 'Medical', eyebrow: 'The healthcare marketing ecosystem', tagline: 'Attract. Book. Care. Bring patients back.',
-    intro: 'Turn interest into appointments and first visits into lasting relationships. Connect your marketing, AI receptionist, patient CRM and clinical tools in one managed ecosystem, without replacing the software your practice trusts.',
-    image: '/mortgage-suite/intro.png', imageAlt: 'Connected glass spheres representing a connected care system',
-    audience: ['Medical practices', 'Med spas', 'Hormone clinics', 'Wellness centers'],
-    heading: 'One patient journey. Not a dozen disconnected tools.',
-    description: 'Attract patients through ads, search and social. Help them book with fast responses and simple scheduling. Connect appointment activity to follow-up, reviews and recall. Your team gets the full picture, while patients get a consistent experience from first click to next visit.',
+    name: "Medical",
+    eyebrow: "The healthcare marketing ecosystem",
+    tagline: "Attract. Book. Care. Bring patients back.",
+    intro:
+      "Turn interest into appointments and first visits into lasting relationships. Connect your marketing, AI receptionist, patient CRM and clinical tools in one managed ecosystem, without replacing the software your practice trusts.",
+    image: "/mortgage-suite/intro.png",
+    imageAlt: "Connected glass spheres representing a connected care system",
+    audience: ["Medical practices", "Med spas", "Hormone clinics", "Wellness centers"],
+    heading: "One patient journey. Not a dozen disconnected tools.",
+    description:
+      "Attract patients through ads, search and social. Help them book with fast responses and simple scheduling. Connect appointment activity to follow-up, reviews and recall. Your team gets the full picture, while patients get a consistent experience from first click to next visit.",
     features: [
-      ['Patient CRM', 'Keep patient relationships, referral sources and custom practice pipelines in one place. HIPAA-ready configurations and a BAA support your compliance requirements.'],
-      ['AI receptionist', 'Support after-hours inquiries, answer routine questions and help patients book appointments, with handoffs to your team.'],
-      ['Smart scheduling', 'Connect multi-provider calendars with appointment confirmations, reminders and no-show recovery workflows.'],
-      ['Digital intake', 'Collect intake information through configured forms and route it into your patient workflow before the visit.'],
-      ['Recall & reactivation', 'Follow up after consultations, reconnect with inactive patients and coordinate the next appointment.'],
-      ['Reviews & referrals', 'Send post-visit review requests and track physician referrals, patient sources and acquisition performance.'],
+      [
+        "Patient CRM",
+        "Keep patient relationships, referral sources and custom practice pipelines in one place. HIPAA-ready configurations and a BAA support your compliance requirements.",
+      ],
+      [
+        "AI receptionist",
+        "Support after-hours inquiries, answer routine questions and help patients book appointments, with handoffs to your team.",
+      ],
+      [
+        "Smart scheduling",
+        "Connect multi-provider calendars with appointment confirmations, reminders and no-show recovery workflows.",
+      ],
+      [
+        "Digital intake",
+        "Collect intake information through configured forms and route it into your patient workflow before the visit.",
+      ],
+      [
+        "Recall & reactivation",
+        "Follow up after consultations, reconnect with inactive patients and coordinate the next appointment.",
+      ],
+      [
+        "Reviews & referrals",
+        "Send post-visit review requests and track physician referrals, patient sources and acquisition performance.",
+      ],
     ],
-    journeyTitle: 'From first hello to ongoing care.',
+    journeyTitle: "From first hello to ongoing care.",
     steps: [
-      ['An inquiry arrives', 'A call, website form or campaign starts a patient relationship in your CRM.', 'Capture the inquiry', 'Route new inquiries into the right patient pipeline. Keep source information and conversation history together so staff have context from the start.'],
-      ['A conversation starts', 'Your AI receptionist supports the first response and hands off when needed.', 'Make the next step easy', 'Answer routine practice questions and help prospective patients find an appointment. Define clear escalation rules for clinical questions and sensitive situations.'],
-      ['The visit is booked', 'Scheduling, intake and reminders work together before the appointment.', 'Prepare before they arrive', 'Coordinate provider calendars, send intake forms and deliver appointment reminders through the channels configured for your practice.'],
-      ['The relationship continues', 'Follow-up, recall and review requests keep the experience connected.', 'Care beyond the calendar', 'Use appointment events to coordinate follow-up tasks, recall sequences and review requests. Keep clinical decisions with your care team.'],
+      [
+        "An inquiry arrives",
+        "A call, website form or campaign starts a patient relationship in your CRM.",
+        "Capture the inquiry",
+        "Route new inquiries into the right patient pipeline. Keep source information and conversation history together so staff have context from the start.",
+      ],
+      [
+        "A conversation starts",
+        "Your AI receptionist supports the first response and hands off when needed.",
+        "Make the next step easy",
+        "Answer routine practice questions and help prospective patients find an appointment. Define clear escalation rules for clinical questions and sensitive situations.",
+      ],
+      [
+        "The visit is booked",
+        "Scheduling, intake and reminders work together before the appointment.",
+        "Prepare before they arrive",
+        "Coordinate provider calendars, send intake forms and deliver appointment reminders through the channels configured for your practice.",
+      ],
+      [
+        "The relationship continues",
+        "Follow-up, recall and review requests keep the experience connected.",
+        "Care beyond the calendar",
+        "Use appointment events to coordinate follow-up tasks, recall sequences and review requests. Keep clinical decisions with your care team.",
+      ],
     ],
-    connectionTitle: 'Keep your clinical tools. Connect the experience.',
-    connectionBody: 'Bring your EMR, booking system and patient engagement workflows together. The live integration directory includes these platforms; connection scope depends on vendor access, configuration and your practice requirements.',
-    connections: ['4D EMR', 'Aesthetic Record', 'AestheticsPro', 'Acuity Scheduling', 'Booker by Mindbody', 'Boulevard'],
-    connectionLink: 'https://studioescrow.cloud/medical-suite/integrations', connectionLabel: 'Explore medical integrations',
-    bandTitle: 'Built for your practice. Managed with you.',
-    bandBody: 'House of Karma supports setup, configuration and ongoing optimization, from patient pipelines to receptionist workflows. We start with how your practice actually works, then connect the pieces around it.',
+    connectionTitle: "Keep your clinical tools. Connect the experience.",
+    connectionBody:
+      "Bring your EMR, booking system and patient engagement workflows together. The live integration directory includes these platforms; connection scope depends on vendor access, configuration and your practice requirements.",
+    connections: [
+      "4D EMR",
+      "Aesthetic Record",
+      "AestheticsPro",
+      "Acuity Scheduling",
+      "Booker by Mindbody",
+      "Boulevard",
+    ],
+    connectionLink: "https://studioescrow.cloud/medical-suite/integrations",
+    connectionLabel: "Explore medical integrations",
+    bandTitle: "Built for your practice. Managed with you.",
+    bandBody:
+      "House of Karma supports setup, configuration and ongoing optimization, from patient pipelines to receptionist workflows. We start with how your practice actually works, then connect the pieces around it.",
     faqs: [
-      ['Does this replace our EMR?', 'The Medical Suite is designed to work alongside your clinical software, connecting patient engagement, scheduling and follow-up. Available sync fields and workflows vary by vendor and implementation.'],
-      ['How is HIPAA handled?', 'HIPAA-ready configuration and a Business Associate Agreement are available. Compliance also depends on your selected vendors, access controls, communication channels and operating practices. Confirm the scope with our team before sending protected health information.'],
-      ['Who handles the setup?', 'The Medical Suite includes a managed implementation approach with House of Karma as system engineers. The team scopes your integrations, configures workflows and supports ongoing optimization.'],
+      [
+        "Does this replace our EMR?",
+        "The Medical Suite is designed to work alongside your clinical software, connecting patient engagement, scheduling and follow-up. Available sync fields and workflows vary by vendor and implementation.",
+      ],
+      [
+        "How is HIPAA handled?",
+        "HIPAA-ready configuration and a Business Associate Agreement are available. Compliance also depends on your selected vendors, access controls, communication channels and operating practices. Confirm the scope with our team before sending protected health information.",
+      ],
+      [
+        "Who handles the setup?",
+        "The Medical Suite includes a managed implementation approach with House of Karma as system engineers. The team scopes your integrations, configures workflows and supports ongoing optimization.",
+      ],
     ],
   },
   mortgage: {
-    name: 'Mortgage', eyebrow: 'For brokers. For lasting relationships.', tagline: 'Stay connected. From inquiry to closing.',
-    intro: 'One home for your leads, conversations and follow-up. Connect your CRM with AI-assisted response and nurture workflows, so your team can build relationships instead of chasing the next task.',
-    image: '/medical-suite/intro.png', imageAlt: 'A transparent glass house with blue reflections',
-    audience: ['Mortgage brokers', 'Loan officers', 'Real estate teams', 'Referral partners'],
-    heading: 'A longer sales cycle. A shorter to-do list.',
-    description: 'Not every lead is ready today. Build on the capture, nurture and referral approach behind our real estate platform, with a done-for-you workflow designed around your mortgage business.',
+    name: "Mortgage",
+    eyebrow: "For brokers. For lasting relationships.",
+    tagline: "Stay connected. From inquiry to closing.",
+    intro:
+      "One home for your leads, conversations and follow-up. Connect your CRM with AI-assisted response and nurture workflows, so your team can build relationships instead of chasing the next task.",
+    image: "/medical-suite/intro.png",
+    imageAlt: "A transparent glass house with blue reflections",
+    audience: ["Mortgage brokers", "Loan officers", "Real estate teams", "Referral partners"],
+    heading: "A longer sales cycle. A shorter to-do list.",
+    description:
+      "Not every lead is ready today. Build on the capture, nurture and referral approach behind our real estate platform, with a done-for-you workflow designed around your mortgage business.",
     features: [
-      ['Connected lead pipeline', 'Bring inquiries, notes, conversations and next steps together. Keep every relationship visible from first contact through your configured stages.'],
-      ['AI-assisted follow-up', 'Support fast initial responses and collect the context your team needs before a personal conversation.'],
-      ['Long-term nurture', 'Use the 40- and 70-day nurture approach featured in our real estate platform, adapted to your audience and follow-up requirements.'],
-      ['Intent-based routing', 'Use replies and engagement signals to flag interested leads and prompt a timely handoff to the right person.'],
-      ['One conversation history', 'Keep SMS and email touchpoints connected to the contact record, so your team can pick up where the last conversation ended.'],
-      ['Referral relationships', 'Maintain partner relationships and continue post-close follow-up with review requests and referral workflows.'],
+      [
+        "Connected lead pipeline",
+        "Bring inquiries, notes, conversations and next steps together. Keep every relationship visible from first contact through your configured stages.",
+      ],
+      [
+        "AI-assisted follow-up",
+        "Support fast initial responses and collect the context your team needs before a personal conversation.",
+      ],
+      [
+        "Long-term nurture",
+        "Use the 40- and 70-day nurture approach featured in our real estate platform, adapted to your audience and follow-up requirements.",
+      ],
+      [
+        "Intent-based routing",
+        "Use replies and engagement signals to flag interested leads and prompt a timely handoff to the right person.",
+      ],
+      [
+        "One conversation history",
+        "Keep SMS and email touchpoints connected to the contact record, so your team can pick up where the last conversation ended.",
+      ],
+      [
+        "Referral relationships",
+        "Maintain partner relationships and continue post-close follow-up with review requests and referral workflows.",
+      ],
     ],
-    journeyTitle: 'From a new lead to the next referral.',
+    journeyTitle: "From a new lead to the next referral.",
     steps: [
-      ['Capture the opportunity', 'Website forms, campaigns and referral sources feed your pipeline.', 'Every inquiry has a home', 'Connect your lead sources and preserve the source, contact details and context. Assign an owner and start the appropriate follow-up workflow.'],
-      ['Start the conversation', 'AI-assisted response opens the conversation while interest is fresh.', 'Respond with context', 'Collect a lead’s goals and timing, then route the conversation to your team. Your licensed professionals remain responsible for lending advice and decisions.'],
-      ['Stay top of mind', 'Nurture sequences keep the relationship moving until the timing is right.', 'Consistency without the chasing', 'Combine educational emails, text follow-ups and personal call tasks. Adjust the sequence when a lead replies or shows interest, rather than continuing a generic drip.'],
-      ['Close the loop', 'Keep the relationship alive beyond the transaction.', 'The closing is not the end', 'Coordinate post-close check-ins, review requests and referral touchpoints. Stay connected to past clients and the partners who introduced them.'],
+      [
+        "Capture the opportunity",
+        "Website forms, campaigns and referral sources feed your pipeline.",
+        "Every inquiry has a home",
+        "Connect your lead sources and preserve the source, contact details and context. Assign an owner and start the appropriate follow-up workflow.",
+      ],
+      [
+        "Start the conversation",
+        "AI-assisted response opens the conversation while interest is fresh.",
+        "Respond with context",
+        "Collect a lead’s goals and timing, then route the conversation to your team. Your licensed professionals remain responsible for lending advice and decisions.",
+      ],
+      [
+        "Stay top of mind",
+        "Nurture sequences keep the relationship moving until the timing is right.",
+        "Consistency without the chasing",
+        "Combine educational emails, text follow-ups and personal call tasks. Adjust the sequence when a lead replies or shows interest, rather than continuing a generic drip.",
+      ],
+      [
+        "Close the loop",
+        "Keep the relationship alive beyond the transaction.",
+        "The closing is not the end",
+        "Coordinate post-close check-ins, review requests and referral touchpoints. Stay connected to past clients and the partners who introduced them.",
+      ],
     ],
-    connectionTitle: 'Your relationships. One connected view.',
-    connectionBody: 'Start with the channels you already use. We scope lead-source connections, pipeline stages and handoffs around your team. Any loan-system connection is reviewed separately for compatibility and access.',
-    connections: ['Website forms', 'Email', 'SMS', 'Calendars', 'Referral sources', 'Workflow automation'],
-    connectionLink: 'https://studioescrow.cloud/real-estate', connectionLabel: 'Explore the real estate nurture system',
-    bandTitle: 'Not another tool to set up. A system built around you.',
-    bandBody: 'The Mortgage Suite pairs the Scale platform with a done-for-you buildout. Map your lead sources, tailor your pipeline and launch follow-up workflows with a team that handles the implementation.',
+    connectionTitle: "Your relationships. One connected view.",
+    connectionBody:
+      "Start with the channels you already use. We scope lead-source connections, pipeline stages and handoffs around your team. Any loan-system connection is reviewed separately for compatibility and access.",
+    connections: [
+      "Website forms",
+      "Email",
+      "SMS",
+      "Calendars",
+      "Referral sources",
+      "Workflow automation",
+    ],
+    connectionLink: "https://studioescrow.cloud/real-estate",
+    connectionLabel: "Explore the real estate nurture system",
+    bandTitle: "Not another tool to set up. A system built around you.",
+    bandBody:
+      "The Mortgage Suite pairs the Scale platform with a done-for-you buildout. Map your lead sources, tailor your pipeline and launch follow-up workflows with a team that handles the implementation.",
     faqs: [
-      ['Is this a loan origination system?', 'This page describes CRM, communications and relationship automation, not a replacement for your loan origination system. Discuss your existing software and required connections during your demo.'],
-      ['Can nurture sequences match our process?', 'Yes. The 40- and 70-day sequences on the real estate platform provide a starting approach. Messaging, timing and handoffs should be configured for your business, consent requirements and compliance review.'],
-      ['Does AI make lending decisions?', 'No lending decision-making is described here. AI supports communication and initial information collection; your licensed team handles advice, eligibility, underwriting and lending decisions.'],
+      [
+        "Is this a loan origination system?",
+        "This page describes CRM, communications and relationship automation, not a replacement for your loan origination system. Discuss your existing software and required connections during your demo.",
+      ],
+      [
+        "Can nurture sequences match our process?",
+        "Yes. The 40- and 70-day sequences on the real estate platform provide a starting approach. Messaging, timing and handoffs should be configured for your business, consent requirements and compliance review.",
+      ],
+      [
+        "Does AI make lending decisions?",
+        "No lending decision-making is described here. AI supports communication and initial information collection; your licensed team handles advice, eligibility, underwriting and lending decisions.",
+      ],
     ],
   },
-} as const
-export type SuiteKind = keyof typeof suites
+} as const;
+export type SuiteKind = keyof typeof suites;

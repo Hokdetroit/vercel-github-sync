@@ -18,12 +18,9 @@ export const Route = createFileRoute("/privacy")({
   component: PageComponent,
 });
 
-import { LegalPage } from '@/components/site/legal-page'
-import { routeMetadata } from '@/lib/routes'
-
-
+import { LegalPage } from "@/components/site/legal-page";
+import { routeMetadata } from "@/lib/routes";
 
 function PageComponent() {
-  return <LegalPage routeId="privacy" />
+  return <LegalPage routeId="privacy" />;
 }
-

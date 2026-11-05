@@ -18,12 +18,10 @@ export const Route = createFileRoute("/schedule-demo")({
   component: PageComponent,
 });
 
-import { LeadForm } from '@/components/site/lead-form'
-import { PageHero, Sheet } from '@/components/site/sections'
-import styles from '@/components/site/site.module.css'
-import { routeMetadata } from '@/lib/routes'
-
-
+import { LeadForm } from "@/components/site/lead-form";
+import { PageHero, Sheet } from "@/components/site/sections";
+import styles from "@/components/site/site.module.css";
+import { routeMetadata } from "@/lib/routes";
 
 function PageComponent() {
   return (
@@ -42,8 +40,8 @@ function PageComponent() {
                 Request your demo
               </h2>
               <p className="ma3IoW_bodyM ma3IoW_grey">
-                Share a few details and the Studio Escrow team will follow up to schedule a walkthrough tailored to your
-                industry.
+                Share a few details and the Studio Escrow team will follow up to schedule a
+                walkthrough tailored to your industry.
               </p>
             </div>
             <div data-reveal="true">
@@ -53,6 +51,5 @@ function PageComponent() {
         </section>
       </Sheet>
     </main>
-  )
+  );
 }
-

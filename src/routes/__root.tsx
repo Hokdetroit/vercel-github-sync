@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { RevealObserver } from "@/components/site/reveal-observer";
 import styles from "@/components/site/site.module.css";
 
-export const Route = createRootRoute()({
+export const Route = createRootRoute({
   head: () => ({
     meta: [
       {
@@ -35,7 +35,7 @@ export const Route = createRootRoute()({
       },
     ],
   }),
-  onError: (error) => {
+  onError: (error: unknown) => {
     reportVibeError(error);
   },
   component: RootComponent,

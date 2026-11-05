@@ -1,44 +1,72 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import styles from './site.module.css'
+import { useState } from "react";
+import styles from "./site.module.css";
 
 // TODO: add verified default assumptions
 const FIELDS = [
-  { id: 'toolsCost', label: 'Monthly cost of your current tools', prefix: '$', hint: 'Add up every subscription you would replace.' },
-  { id: 'hours', label: 'Hours per week spent switching between tools', hint: 'Across your whole team.' },
-  { id: 'hourlyRate', label: 'Hourly cost of that time', prefix: '$' },
-  { id: 'planCost', label: 'Monthly Studio Escrow cost you are considering', prefix: '$', hint: 'Use the figure from your quote, including usage.' },
-] as const
+  {
+    id: "toolsCost",
+    label: "Monthly cost of your current tools",
+    prefix: "$",
+    hint: "Add up every subscription you would replace.",
+  },
+  {
+    id: "hours",
+    label: "Hours per week spent switching between tools",
+    hint: "Across your whole team.",
+  },
+  { id: "hourlyRate", label: "Hourly cost of that time", prefix: "$" },
+  {
+    id: "planCost",
+    label: "Monthly Studio Escrow cost you are considering",
+    prefix: "$",
+    hint: "Use the figure from your quote, including usage.",
+  },
+] as const;
 
-type FieldId = (typeof FIELDS)[number]['id']
+type FieldId = (typeof FIELDS)[number]["id"];
 
-const WEEKS_PER_MONTH = 52 / 12
-const currency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
+const WEEKS_PER_MONTH = 52 / 12;
+const currency = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  maximumFractionDigits: 0,
+});
 
 function parse(value: string): number | null {
-  if (value.trim() === '') return null
-  const n = Number(value)
-  return Number.isFinite(n) && n >= 0 ? n : null
+  if (value.trim() === "") return null;
+  const n = Number(value);
+  return Number.isFinite(n) && n >= 0 ? n : null;
 }
 
 export function SavingsCalculator() {
-  const [values, setValues] = useState<Record<FieldId, string>>({ toolsCost: '', hours: '', hourlyRate: '', planCost: '' })
+  const [values, setValues] = useState<Record<FieldId, string>>({
+    toolsCost: "",
+    hours: "",
+    hourlyRate: "",
+    planCost: "",
+  });
 
-  const toolsCost = parse(values.toolsCost)
-  const hours = parse(values.hours)
-  const hourlyRate = parse(values.hourlyRate)
-  const planCost = parse(values.planCost)
+  const toolsCost = parse(values.toolsCost);
+  const hours = parse(values.hours);
+  const hourlyRate = parse(values.hourlyRate);
+  const planCost = parse(values.planCost);
 
-  const timeCost = hours !== null && hourlyRate !== null ? hours * hourlyRate * WEEKS_PER_MONTH : null
-  const currentTotal = toolsCost !== null ? toolsCost + (timeCost ?? 0) : null
-  const difference = currentTotal !== null && planCost !== null ? currentTotal - planCost : null
+  const timeCost =
+    hours !== null && hourlyRate !== null ? hours * hourlyRate * WEEKS_PER_MONTH : null;
+  const currentTotal = toolsCost !== null ? toolsCost + (timeCost ?? 0) : null;
+  const difference = currentTotal !== null && planCost !== null ? currentTotal - planCost : null;
 
-  const show = (n: number | null) => (n === null ? '—' : currency.format(n))
+  const show = (n: number | null) => (n === null ? "—" : currency.format(n));
 
   return (
     <div className={styles.calc}>
-      <form className={styles.form} aria-labelledby="calc-inputs" onSubmit={(e) => e.preventDefault()}>
+      <form
+        className={styles.form}
+        aria-labelledby="calc-inputs"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <h2 id="calc-inputs" className="ma3IoW_h4">
           Your figures
         </h2>
@@ -47,8 +75,8 @@ export function SavingsCalculator() {
             <label className={styles.label} htmlFor={`calc-${field.id}`}>
               {field.label}
             </label>
-            <div className={'prefix' in field ? styles.prefixed : undefined}>
-              {'prefix' in field ? <span aria-hidden="true">{field.prefix}</span> : null}
+            <div className={"prefix" in field ? styles.prefixed : undefined}>
+              {"prefix" in field ? <span aria-hidden="true">{field.prefix}</span> : null}
               <input
                 className={styles.input}
                 id={`calc-${field.id}`}
@@ -58,10 +86,10 @@ export function SavingsCalculator() {
                 step="any"
                 value={values[field.id]}
                 onChange={(e) => setValues((v) => ({ ...v, [field.id]: e.target.value }))}
-                aria-describedby={'hint' in field ? `calc-${field.id}-hint` : undefined}
+                aria-describedby={"hint" in field ? `calc-${field.id}-hint` : undefined}
               />
             </div>
-            {'hint' in field ? (
+            {"hint" in field ? (
               <span className={styles.hint} id={`calc-${field.id}-hint`}>
                 {field.hint}
               </span>
@@ -97,5 +125,5 @@ export function SavingsCalculator() {
         </p>
       </section>
     </div>
-  )
+  );
 }

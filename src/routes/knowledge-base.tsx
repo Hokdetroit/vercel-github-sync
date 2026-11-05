@@ -18,26 +18,29 @@ export const Route = createFileRoute("/knowledge-base")({
   component: PageComponent,
 });
 
-import { LinkButton } from '@/components/site/link-button'
-import { CardGrid, ClosingCta, PageHero, Section, Sheet } from '@/components/site/sections'
-import styles from '@/components/site/site.module.css'
-import { href, routeMetadata } from '@/lib/routes'
-
-
+import { LinkButton } from "@/components/site/link-button";
+import { CardGrid, ClosingCta, PageHero, Section, Sheet } from "@/components/site/sections";
+import styles from "@/components/site/site.module.css";
+import { href, routeMetadata } from "@/lib/routes";
 
 const CATEGORIES = [
-  'Getting Started',
-  'CRM and Pipelines',
-  'Communications',
-  'Automations',
-  'AI Tools',
-  'Medical Suite',
-].map((title) => ({ title, meta: 'Articles coming soon' }))
+  "Getting Started",
+  "CRM and Pipelines",
+  "Communications",
+  "Automations",
+  "AI Tools",
+  "Medical Suite",
+].map((title) => ({ title, meta: "Articles coming soon" }));
 
 function PageComponent() {
   return (
     <main id="main">
-      <PageHero routeId="knowledgeBase" eyebrow="Knowledge base" title="How can we help?" sub="Guides and how-to articles for Studio Escrow.">
+      <PageHero
+        routeId="knowledgeBase"
+        eyebrow="Knowledge base"
+        title="How can we help?"
+        sub="Guides and how-to articles for Studio Escrow."
+      >
         <div className={styles.search} data-reveal="true">
           <label htmlFor="kb-search" className="sr-only">
             Search the knowledge base
@@ -58,18 +61,21 @@ function PageComponent() {
         <Section id="categories-title" title="Browse by category">
           <CardGrid items={CATEGORIES} columns={3} tall />
         </Section>
-        <Section id="support-title" title="Need a hand?" intro="Our team can help with anything not covered here yet.">
+        <Section
+          id="support-title"
+          title="Need a hand?"
+          intro="Our team can help with anything not covered here yet."
+        >
           <div data-reveal="true">
-            <LinkButton href={href('contact')}>Contact support</LinkButton>
+            <LinkButton href={href("contact")}>Contact support</LinkButton>
           </div>
         </Section>
       </Sheet>
       <ClosingCta
         title="New to Studio Escrow?"
         strong="Start with a demo."
-        secondary={{ href: href('faq'), label: 'Read the FAQ' }}
+        secondary={{ href: href("faq"), label: "Read the FAQ" }}
       />
     </main>
-  )
+  );
 }
-
