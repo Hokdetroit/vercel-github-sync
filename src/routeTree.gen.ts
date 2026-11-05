@@ -11,7 +11,26 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SplatRouteImport } from './routes/$'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AiStudioRouteImport } from './routes/ai-studio'
+import { Route as CalculatorRouteImport } from './routes/calculator'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as CompareRouteImport } from './routes/compare'
+import { Route as ComplianceSecurityRouteImport } from './routes/compliance-security'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CrmAutomationsRouteImport } from './routes/crm-automations'
+import { Route as DoItForYouRouteImport } from './routes/do-it-for-you'
+import { Route as EnterprisePricingRouteImport } from './routes/enterprise-pricing'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as FeaturesRouteImport } from './routes/features'
+import { Route as KnowledgeBaseRouteImport } from './routes/knowledge-base'
+import { Route as MedicalSuiteRouteImport } from './routes/medical-suite'
+import { Route as MortgageSuiteRouteImport } from './routes/mortgage-suite'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as RealEstateSuiteRouteImport } from './routes/real-estate-suite'
+import { Route as ScheduleDemoRouteImport } from './routes/schedule-demo'
+import { Route as TermsRouteImport } from './routes/terms'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,40 +42,278 @@ const SplatRoute = SplatRouteImport.update({
   path: '/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiStudioRoute = AiStudioRouteImport.update({
+  id: '/ai-studio',
+  path: '/ai-studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalculatorRoute = CalculatorRouteImport.update({
+  id: '/calculator',
+  path: '/calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComplianceSecurityRoute = ComplianceSecurityRouteImport.update({
+  id: '/compliance-security',
+  path: '/compliance-security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CrmAutomationsRoute = CrmAutomationsRouteImport.update({
+  id: '/crm-automations',
+  path: '/crm-automations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DoItForYouRoute = DoItForYouRouteImport.update({
+  id: '/do-it-for-you',
+  path: '/do-it-for-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnterprisePricingRoute = EnterprisePricingRouteImport.update({
+  id: '/enterprise-pricing',
+  path: '/enterprise-pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FeaturesRoute = FeaturesRouteImport.update({
   id: '/features',
   path: '/features',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KnowledgeBaseRoute = KnowledgeBaseRouteImport.update({
+  id: '/knowledge-base',
+  path: '/knowledge-base',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MedicalSuiteRoute = MedicalSuiteRouteImport.update({
+  id: '/medical-suite',
+  path: '/medical-suite',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MortgageSuiteRoute = MortgageSuiteRouteImport.update({
+  id: '/mortgage-suite',
+  path: '/mortgage-suite',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RealEstateSuiteRoute = RealEstateSuiteRouteImport.update({
+  id: '/real-estate-suite',
+  path: '/real-estate-suite',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScheduleDemoRoute = ScheduleDemoRouteImport.update({
+  id: '/schedule-demo',
+  path: '/schedule-demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/about': typeof AboutRoute
+  '/ai-studio': typeof AiStudioRoute
+  '/calculator': typeof CalculatorRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/compare': typeof CompareRoute
+  '/compliance-security': typeof ComplianceSecurityRoute
+  '/contact': typeof ContactRoute
+  '/crm-automations': typeof CrmAutomationsRoute
+  '/do-it-for-you': typeof DoItForYouRoute
+  '/enterprise-pricing': typeof EnterprisePricingRoute
+  '/faq': typeof FaqRoute
   '/features': typeof FeaturesRoute
+  '/knowledge-base': typeof KnowledgeBaseRoute
+  '/medical-suite': typeof MedicalSuiteRoute
+  '/mortgage-suite': typeof MortgageSuiteRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/real-estate-suite': typeof RealEstateSuiteRoute
+  '/schedule-demo': typeof ScheduleDemoRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/about': typeof AboutRoute
+  '/ai-studio': typeof AiStudioRoute
+  '/calculator': typeof CalculatorRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/compare': typeof CompareRoute
+  '/compliance-security': typeof ComplianceSecurityRoute
+  '/contact': typeof ContactRoute
+  '/crm-automations': typeof CrmAutomationsRoute
+  '/do-it-for-you': typeof DoItForYouRoute
+  '/enterprise-pricing': typeof EnterprisePricingRoute
+  '/faq': typeof FaqRoute
   '/features': typeof FeaturesRoute
+  '/knowledge-base': typeof KnowledgeBaseRoute
+  '/medical-suite': typeof MedicalSuiteRoute
+  '/mortgage-suite': typeof MortgageSuiteRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/real-estate-suite': typeof RealEstateSuiteRoute
+  '/schedule-demo': typeof ScheduleDemoRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/about': typeof AboutRoute
+  '/ai-studio': typeof AiStudioRoute
+  '/calculator': typeof CalculatorRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/compare': typeof CompareRoute
+  '/compliance-security': typeof ComplianceSecurityRoute
+  '/contact': typeof ContactRoute
+  '/crm-automations': typeof CrmAutomationsRoute
+  '/do-it-for-you': typeof DoItForYouRoute
+  '/enterprise-pricing': typeof EnterprisePricingRoute
+  '/faq': typeof FaqRoute
   '/features': typeof FeaturesRoute
+  '/knowledge-base': typeof KnowledgeBaseRoute
+  '/medical-suite': typeof MedicalSuiteRoute
+  '/mortgage-suite': typeof MortgageSuiteRoute
+  '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
+  '/real-estate-suite': typeof RealEstateSuiteRoute
+  '/schedule-demo': typeof ScheduleDemoRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$' | '/features'
+  fullPaths:
+    | '/'
+    | '/$'
+    | '/about'
+    | '/ai-studio'
+    | '/calculator'
+    | '/case-studies'
+    | '/compare'
+    | '/compliance-security'
+    | '/contact'
+    | '/crm-automations'
+    | '/do-it-for-you'
+    | '/enterprise-pricing'
+    | '/faq'
+    | '/features'
+    | '/knowledge-base'
+    | '/medical-suite'
+    | '/mortgage-suite'
+    | '/pricing'
+    | '/privacy'
+    | '/real-estate-suite'
+    | '/schedule-demo'
+    | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$' | '/features'
-  id: '__root__' | '/' | '/$' | '/features'
+  to:
+    | '/'
+    | '/$'
+    | '/about'
+    | '/ai-studio'
+    | '/calculator'
+    | '/case-studies'
+    | '/compare'
+    | '/compliance-security'
+    | '/contact'
+    | '/crm-automations'
+    | '/do-it-for-you'
+    | '/enterprise-pricing'
+    | '/faq'
+    | '/features'
+    | '/knowledge-base'
+    | '/medical-suite'
+    | '/mortgage-suite'
+    | '/pricing'
+    | '/privacy'
+    | '/real-estate-suite'
+    | '/schedule-demo'
+    | '/terms'
+  id:
+    | '__root__'
+    | '/'
+    | '/$'
+    | '/about'
+    | '/ai-studio'
+    | '/calculator'
+    | '/case-studies'
+    | '/compare'
+    | '/compliance-security'
+    | '/contact'
+    | '/crm-automations'
+    | '/do-it-for-you'
+    | '/enterprise-pricing'
+    | '/faq'
+    | '/features'
+    | '/knowledge-base'
+    | '/medical-suite'
+    | '/mortgage-suite'
+    | '/pricing'
+    | '/privacy'
+    | '/real-estate-suite'
+    | '/schedule-demo'
+    | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SplatRoute: typeof SplatRoute
+  AboutRoute: typeof AboutRoute
+  AiStudioRoute: typeof AiStudioRoute
+  CalculatorRoute: typeof CalculatorRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
+  CompareRoute: typeof CompareRoute
+  ComplianceSecurityRoute: typeof ComplianceSecurityRoute
+  ContactRoute: typeof ContactRoute
+  CrmAutomationsRoute: typeof CrmAutomationsRoute
+  DoItForYouRoute: typeof DoItForYouRoute
+  EnterprisePricingRoute: typeof EnterprisePricingRoute
+  FaqRoute: typeof FaqRoute
   FeaturesRoute: typeof FeaturesRoute
+  KnowledgeBaseRoute: typeof KnowledgeBaseRoute
+  MedicalSuiteRoute: typeof MedicalSuiteRoute
+  MortgageSuiteRoute: typeof MortgageSuiteRoute
+  PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
+  RealEstateSuiteRoute: typeof RealEstateSuiteRoute
+  ScheduleDemoRoute: typeof ScheduleDemoRoute
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,11 +332,144 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-studio': {
+      id: '/ai-studio'
+      path: '/ai-studio'
+      fullPath: '/ai-studio'
+      preLoaderRoute: typeof AiStudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calculator': {
+      id: '/calculator'
+      path: '/calculator'
+      fullPath: '/calculator'
+      preLoaderRoute: typeof CalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compliance-security': {
+      id: '/compliance-security'
+      path: '/compliance-security'
+      fullPath: '/compliance-security'
+      preLoaderRoute: typeof ComplianceSecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/crm-automations': {
+      id: '/crm-automations'
+      path: '/crm-automations'
+      fullPath: '/crm-automations'
+      preLoaderRoute: typeof CrmAutomationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/do-it-for-you': {
+      id: '/do-it-for-you'
+      path: '/do-it-for-you'
+      fullPath: '/do-it-for-you'
+      preLoaderRoute: typeof DoItForYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/enterprise-pricing': {
+      id: '/enterprise-pricing'
+      path: '/enterprise-pricing'
+      fullPath: '/enterprise-pricing'
+      preLoaderRoute: typeof EnterprisePricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/features': {
       id: '/features'
       path: '/features'
       fullPath: '/features'
       preLoaderRoute: typeof FeaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/knowledge-base': {
+      id: '/knowledge-base'
+      path: '/knowledge-base'
+      fullPath: '/knowledge-base'
+      preLoaderRoute: typeof KnowledgeBaseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/medical-suite': {
+      id: '/medical-suite'
+      path: '/medical-suite'
+      fullPath: '/medical-suite'
+      preLoaderRoute: typeof MedicalSuiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mortgage-suite': {
+      id: '/mortgage-suite'
+      path: '/mortgage-suite'
+      fullPath: '/mortgage-suite'
+      preLoaderRoute: typeof MortgageSuiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/real-estate-suite': {
+      id: '/real-estate-suite'
+      path: '/real-estate-suite'
+      fullPath: '/real-estate-suite'
+      preLoaderRoute: typeof RealEstateSuiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schedule-demo': {
+      id: '/schedule-demo'
+      path: '/schedule-demo'
+      fullPath: '/schedule-demo'
+      preLoaderRoute: typeof ScheduleDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -88,7 +478,26 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
+  AboutRoute: AboutRoute,
+  AiStudioRoute: AiStudioRoute,
+  CalculatorRoute: CalculatorRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
+  CompareRoute: CompareRoute,
+  ComplianceSecurityRoute: ComplianceSecurityRoute,
+  ContactRoute: ContactRoute,
+  CrmAutomationsRoute: CrmAutomationsRoute,
+  DoItForYouRoute: DoItForYouRoute,
+  EnterprisePricingRoute: EnterprisePricingRoute,
+  FaqRoute: FaqRoute,
   FeaturesRoute: FeaturesRoute,
+  KnowledgeBaseRoute: KnowledgeBaseRoute,
+  MedicalSuiteRoute: MedicalSuiteRoute,
+  MortgageSuiteRoute: MortgageSuiteRoute,
+  PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
+  RealEstateSuiteRoute: RealEstateSuiteRoute,
+  ScheduleDemoRoute: ScheduleDemoRoute,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

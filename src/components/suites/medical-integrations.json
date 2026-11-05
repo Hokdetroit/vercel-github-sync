@@ -1,0 +1,282 @@
+[
+  {
+    "name": "4D EMR",
+    "logo": "/medical-suite/integrations/00.png",
+    "category": "EMR & PRACTICE MANAGEMENT",
+    "group": "Book & care",
+    "summary": "Seamless 2-way patient and appointment synchronization with 4D EMR.",
+    "description": "Automatically sync patient records, appointment statuses, and treatment histories between 4D EMR and Studio Escrow. Trigger post-visit review automations, recall sequences, and consultation follow-ups in real time."
+  },
+  {
+    "name": "Acuity Scheduling",
+    "logo": "/medical-suite/integrations/01.png",
+    "category": "EMR & BOOKING",
+    "group": "Book & care",
+    "summary": "Real-time calendar booking and appointment intake automation.",
+    "description": "Connect Acuity to automatically capture new patient bookings, sync consultation calendars, send SMS reminders, and update patient pipeline stages in Studio Escrow when appointments are scheduled or rescheduled."
+  },
+  {
+    "name": "Aesthetic Record",
+    "logo": "/medical-suite/integrations/02.png",
+    "category": "EMR & PRACTICE MANAGEMENT",
+    "group": "Book & care",
+    "summary": "Top EMR integration for medical spas and aesthetic practices.",
+    "description": "Bi-directional integration syncing patient charts, treatment packages, consent forms, and appointment dates. Enable AI receptionist follow-ups and automated post-injectable care instructions."
+  },
+  {
+    "name": "AestheticsPro",
+    "logo": "/medical-suite/integrations/03.png",
+    "category": "EMR & PRACTICE MANAGEMENT",
+    "group": "Book & care",
+    "summary": "Full practice management integration for medical spas and laser centers.",
+    "description": "Automatically push online leads into AestheticsPro, sync appointment calendars, trigger re-engagement drips for past treatments, and track treatment package balances directly inside Studio Escrow."
+  },
+  {
+    "name": "Airtable",
+    "logo": "/medical-suite/integrations/04.png",
+    "category": "DATA & PROJECT MANAGEMENT",
+    "group": "Connect & retain",
+    "summary": "Custom database synchronization and practice operations workflows.",
+    "description": "Sync patient inquiry logs, provider scheduling rosters, inventory tracking, and custom reporting databases between Airtable and your Studio Escrow CRM automations."
+  },
+  {
+    "name": "ASPS Connect",
+    "logo": "/medical-suite/integrations/05.png",
+    "category": "LEAD GENERATION & ASSOCIATIONS",
+    "group": "Attract",
+    "summary": "American Society of Plastic Surgeons lead directory integration.",
+    "description": "Capture plastic surgery patient inquiries directly from ASPS directory listings into Studio Escrow with instant 90-second AI receptionist response and consultation scheduling."
+  },
+  {
+    "name": "Booker by Mindbody",
+    "logo": "/medical-suite/integrations/06.png",
+    "category": "EMR & BOOKING",
+    "group": "Book & care",
+    "summary": "Spa and wellness booking system synchronization.",
+    "description": "Sync client profiles, appointment bookings, service histories, and staff schedules with Booker. Automate pre-appointment intake forms and post-service review requests."
+  },
+  {
+    "name": "Boulevard",
+    "logo": "/medical-suite/integrations/07.png",
+    "category": "EMR & BOOKING",
+    "group": "Book & care",
+    "summary": "Aesthetic client management and precision scheduling.",
+    "description": "Sync Boulevard appointments, client tags, and treatment purchases into Studio Escrow. Automate two-way SMS confirmations, deposit collection, and loyalty membership nurtures."
+  },
+  {
+    "name": "Cherry Patient Financing",
+    "logo": "/medical-suite/integrations/08.png",
+    "category": "PATIENT FINANCING",
+    "group": "Payments",
+    "summary": "Instant buy now, pay later financing workflows for aesthetic treatments.",
+    "description": "Send automated Cherry pre-approval links via SMS before consultations. Sync payment approval statuses into your pipeline to convert consultation leads into booked procedures."
+  },
+  {
+    "name": "ClickUp",
+    "logo": "/medical-suite/integrations/09.png",
+    "category": "DATA & PROJECT MANAGEMENT",
+    "group": "Connect & retain",
+    "summary": "Task management and internal clinic operations tracking.",
+    "description": "Automatically create internal tasks in ClickUp when a high-value surgical consultation is booked or when complex provider onboarding steps are required."
+  },
+  {
+    "name": "DrChrono",
+    "logo": "/medical-suite/integrations/10.webp",
+    "category": "EMR & PRACTICE MANAGEMENT",
+    "group": "Book & care",
+    "summary": "Full EHR integration with appointment and chart synchronization.",
+    "description": "HIPAA-compliant sync between DrChrono EHR and Studio Escrow. Sync patient demographics, appointment schedules, and visit types to trigger automated check-in SMS and review requests."
+  },
+  {
+    "name": "Elation Health",
+    "logo": "/medical-suite/integrations/11.jpeg",
+    "category": "EMR & PRACTICE MANAGEMENT",
+    "group": "Book & care",
+    "summary": "Clinical EHR integration for medical practices and direct primary care.",
+    "description": "Bridge clinical care in Elation with patient relationship management in Studio Escrow. Automate patient onboarding, membership billing reminders, and secure communications."
+  },
+  {
+    "name": "EntityMed",
+    "logo": "/medical-suite/integrations/12.png",
+    "category": "AI & CLINICAL TOOLS",
+    "group": "Connect & retain",
+    "summary": "AI-powered aesthetic simulator and treatment prediction tool.",
+    "description": "Embed EntityMed AI visualization tools into your Studio Escrow landing pages and funnels. Automatically route patients who request AI treatment simulations into consultation follow-up pipelines."
+  },
+  {
+    "name": "Facebook & Instagram Lead Ads",
+    "logo": "/medical-suite/integrations/13.png",
+    "category": "ADVERTISING & META",
+    "group": "Attract",
+    "summary": "Direct Meta lead ad integration with instant AI text-back response.",
+    "description": "Capture Meta lead ad submissions in real time. Instantly trigger AI receptionist follow-up within 90 seconds to qualify prospects and book consultations before leads go cold."
+  },
+  {
+    "name": "Google Analytics & Business Profile",
+    "logo": "/medical-suite/integrations/14.png",
+    "category": "ADVERTISING & SEARCH",
+    "group": "Attract",
+    "summary": "Local SEO, Google Business reviews, and conversion attribution.",
+    "description": "Sync Google reviews, manage Google Business Messages natively in your Unified Inbox, and track advertising conversion ROI directly inside Studio Escrow dashboards."
+  },
+  {
+    "name": "Hint Health",
+    "logo": "/medical-suite/integrations/15.png",
+    "category": "EMR & PRACTICE MANAGEMENT",
+    "group": "Book & care",
+    "summary": "Direct Primary Care (DPC) and recurring membership management.",
+    "description": "Sync DPC membership plans, subscription statuses, and patient records from Hint Health into Studio Escrow to run targeted automated retention campaigns and wellness updates."
+  },
+  {
+    "name": "Inbound Webhooks & REST API",
+    "logo": "/medical-suite/integrations/16.png",
+    "category": "CUSTOM API & WEBHOOKS",
+    "group": "Connect & retain",
+    "summary": "Connect any proprietary practice software, lab portal, or custom app.",
+    "description": "Flexible inbound and outbound webhooks plus full REST API access with OAuth 2.0 and FHIR support to build custom medical integrations tailored to your practice architecture."
+  },
+  {
+    "name": "Instagram DMs & Comments",
+    "logo": "/medical-suite/integrations/17.png",
+    "category": "COMMUNICATIONS & SOCIAL",
+    "group": "Connect & retain",
+    "summary": "Automate Instagram DM inquiries into booked consultations.",
+    "description": "Respond to Instagram DMs and comment keywords automatically using AI agents. Route all patient conversations directly into your Studio Escrow Unified Omnichannel Inbox."
+  },
+  {
+    "name": "Keragon",
+    "logo": "/medical-suite/integrations/18.svg",
+    "category": "HEALTHCARE AUTOMATION",
+    "group": "Connect & retain",
+    "summary": "HIPAA-compliant automation platform connecting healthcare software.",
+    "description": "Leverage Keragon's HIPAA-compliant connector engine to sync Studio Escrow with hundreds of clinical EHR systems, lab networks, e-prescribing tools, and billing software seamlessly."
+  },
+  {
+    "name": "Liine",
+    "logo": "/medical-suite/integrations/19.png",
+    "category": "AI & LEAD INTELLIGENCE",
+    "group": "Connect & retain",
+    "summary": "AI lead capture and call intelligence for medical practices.",
+    "description": "Analyze call recordings and front-desk performance automatically, sync converted consultations into Studio Escrow, and trigger automated follow-up sequences for unbooked callers."
+  },
+  {
+    "name": "Mailgun & Twilio",
+    "logo": "/medical-suite/integrations/20.png",
+    "category": "COMMUNICATIONS & INFRASTRUCTURE",
+    "group": "Connect & retain",
+    "summary": "Enterprise email delivery and TCPA-compliant SMS gateway.",
+    "description": "Dedicated IP email delivery and carrier-registered 10DLC SMS sending for high deliverability of patient appointment reminders, treatment care plans, and monthly newsletters."
+  },
+  {
+    "name": "Mangomint",
+    "logo": "/medical-suite/integrations/21.png",
+    "category": "EMR & BOOKING",
+    "group": "Book & care",
+    "summary": "Next-generation booking software for med spas and salons.",
+    "description": "Automate two-way appointment syncing, membership management, and POS transactions. Trigger automated pre-treatment intake forms and post-visit review campaigns in Studio Escrow."
+  },
+  {
+    "name": "Meevo",
+    "logo": "",
+    "category": "EMR & BOOKING",
+    "group": "Book & care",
+    "summary": "Cloud spa management and appointment scheduling.",
+    "description": "Sync Meevo booking calendars, service histories, and membership packages. Run automated reactivation drips for patients who haven't visited in 60, 90, or 180 days."
+  },
+  {
+    "name": "Mindbody",
+    "logo": "",
+    "category": "EMR & BOOKING",
+    "group": "Book & care",
+    "summary": "Wellness, fitness, and aesthetic clinic booking integration.",
+    "description": "Sync Mindbody client accounts, class and appointment bookings, and purchase histories into Studio Escrow pipelines to drive automated marketing and patient retention."
+  },
+  {
+    "name": "Modernizing Medicine (ModMed)",
+    "logo": "/medical-suite/integrations/24.png",
+    "category": "EMR & PRACTICE MANAGEMENT",
+    "group": "Book & care",
+    "summary": "Specialty-specific EHR integration for dermatology and plastic surgery.",
+    "description": "Bridge ModMed EMA chart data with Studio Escrow patient relationship pipelines. Automate appointment confirmations, pre-op instructions, and Google review generation."
+  },
+  {
+    "name": "Nextech Cloud & Practice+",
+    "logo": "/medical-suite/integrations/25.png",
+    "category": "EMR & PRACTICE MANAGEMENT",
+    "group": "Book & care",
+    "summary": "Premier specialty EHR for plastic surgery, dermatology, and med spas.",
+    "description": "Deep two-way integration with Nextech Cloud and Nextech Practice+. Sync patient leads, appointment schedules, quotes, and treatment histories into Studio Escrow."
+  },
+  {
+    "name": "Notion",
+    "logo": "/medical-suite/integrations/26.png",
+    "category": "DATA & PROJECT MANAGEMENT",
+    "group": "Connect & retain",
+    "summary": "Practice SOPs, training docs, and provider knowledge base sync.",
+    "description": "Sync practice guidelines, treatment protocols, and provider onboarding workflows from Notion directly into your Studio Escrow team knowledge base."
+  },
+  {
+    "name": "PatientNow Essentials & Pro",
+    "logo": "/medical-suite/integrations/27.png",
+    "category": "EMR & PRACTICE MANAGEMENT",
+    "group": "Book & care",
+    "summary": "Aesthetic EMR and practice management integration.",
+    "description": "Sync PatientNow appointment calendars, photo galleries, treatment plans, and reward points with Studio Escrow to run targeted patient retention and upsell campaigns."
+  },
+  {
+    "name": "Practice Better",
+    "logo": "/medical-suite/integrations/28.avif",
+    "category": "EMR & PRACTICE MANAGEMENT",
+    "group": "Book & care",
+    "summary": "Practice management for holistic health, wellness, and nutrition clinics.",
+    "description": "Sync client portals, consultation packages, protocol updates, and appointment schedules between Practice Better and Studio Escrow CRM workflows."
+  },
+  {
+    "name": "Shopify & WooCommerce",
+    "logo": "/medical-suite/integrations/29.svg",
+    "category": "ECOMMERCE & SKINCARE SALES",
+    "group": "Payments",
+    "summary": "Sell medical-grade skincare products and post-care kits online.",
+    "description": "Sync online store purchases, abandoned carts, and product orders with patient CRM profiles. Automatically trigger post-purchase skincare usage drips and replenishment reminders."
+  },
+  {
+    "name": "Slack & Teams",
+    "logo": "/medical-suite/integrations/30.png",
+    "category": "COMMUNICATIONS & STAFF ALERTS",
+    "group": "Connect & retain",
+    "summary": "Instant internal notifications for high-value patient inquiries.",
+    "description": "Send real-time alerts to provider channels when VIP surgical consultation requests come in or when emergency appointment cancellations occur."
+  },
+  {
+    "name": "Square",
+    "logo": "/medical-suite/integrations/31.png",
+    "category": "PAYMENTS & INVOICING",
+    "group": "Payments",
+    "summary": "In-clinic and mobile POS payment processing.",
+    "description": "Sync Square deposits, consultation fees, and package payments into Studio Escrow contact ledgers and pipeline revenue tracking automatically."
+  },
+  {
+    "name": "TikTok Ads & Lead Forms",
+    "logo": "/medical-suite/integrations/32.png",
+    "category": "ADVERTISING & VIDEO",
+    "group": "Attract",
+    "summary": "Capture viral aesthetic video leads automatically.",
+    "description": "Connect TikTok lead generation forms directly to Studio Escrow. Instantly respond to prospective Botox, filler, and body contouring leads via automated SMS text-back."
+  },
+  {
+    "name": "WhatsApp for Business",
+    "logo": "/medical-suite/integrations/33.webp",
+    "category": "COMMUNICATIONS & MESSAGING",
+    "group": "Connect & retain",
+    "summary": "Global patient messaging and international consultation booking.",
+    "description": "Send automated WhatsApp appointment reminders, answer patient inquiries with AI agents, and manage international surgery consultations inside the Unified Inbox."
+  },
+  {
+    "name": "Zenoti",
+    "logo": "/medical-suite/integrations/34.png",
+    "category": "EMR & BOOKING",
+    "group": "Book & care",
+    "summary": "Enterprise spa, salon, and medical spa software integration.",
+    "description": "Sync Zenoti Multi-location booking calendars, guest profiles, package memberships, and marketing consent records into Studio Escrow for centralized practice growth."
+  }
+]

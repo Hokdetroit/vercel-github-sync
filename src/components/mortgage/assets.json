@@ -1,0 +1,222 @@
+[
+  {
+    "name": "Partner 1",
+    "logo": "/mortgage-suite/logos/00.png",
+    "partner": true
+  },
+  {
+    "name": "Partner 2",
+    "logo": "/mortgage-suite/logos/01.png",
+    "partner": true
+  },
+  {
+    "name": "Partner 3",
+    "logo": "/mortgage-suite/logos/02.png",
+    "partner": true
+  },
+  {
+    "name": "Partner 4",
+    "logo": "/mortgage-suite/logos/03.png",
+    "partner": true
+  },
+  {
+    "name": "Partner 5",
+    "logo": "/mortgage-suite/logos/04.png",
+    "partner": true
+  },
+  {
+    "name": "Partner 6",
+    "logo": "/mortgage-suite/logos/05.png",
+    "partner": true
+  },
+  {
+    "name": "Partner 7",
+    "logo": "/mortgage-suite/logos/06.png",
+    "partner": true
+  },
+  {
+    "name": "Partner 8",
+    "logo": "/mortgage-suite/logos/07.png",
+    "partner": true
+  },
+  {
+    "name": "Partner 9",
+    "logo": "/mortgage-suite/logos/08.png",
+    "partner": true
+  },
+  {
+    "name": "Partner 10",
+    "logo": "/mortgage-suite/logos/09.png",
+    "partner": true
+  },
+  {
+    "name": "Partner 11",
+    "logo": "/mortgage-suite/logos/10.png",
+    "partner": true
+  },
+  {
+    "name": "Stripe",
+    "logo": "/mortgage-suite/logos/11.webp",
+    "partner": false
+  },
+  {
+    "name": "Zapier",
+    "logo": "/mortgage-suite/logos/12.svg",
+    "partner": false
+  },
+  {
+    "name": "Instagram",
+    "logo": "/mortgage-suite/logos/13.webp",
+    "partner": false
+  },
+  {
+    "name": "Google",
+    "logo": "/mortgage-suite/logos/14.webp",
+    "partner": false
+  },
+  {
+    "name": "Shopify",
+    "logo": "/mortgage-suite/logos/15.svg",
+    "partner": false
+  },
+  {
+    "name": "Slack",
+    "logo": "/mortgage-suite/logos/16.webp",
+    "partner": false
+  },
+  {
+    "name": "LinkedIn",
+    "logo": "/mortgage-suite/logos/17.webp",
+    "partner": false
+  },
+  {
+    "name": "QuickBooks",
+    "logo": "/mortgage-suite/logos/18.webp",
+    "partner": false
+  },
+  {
+    "name": "Facebook",
+    "logo": "/mortgage-suite/logos/19.webp",
+    "partner": false
+  },
+  {
+    "name": "Salesforce",
+    "logo": "/mortgage-suite/logos/20.png",
+    "partner": false
+  },
+  {
+    "name": "LendingPad",
+    "logo": "/mortgage-suite/logos/21.png",
+    "partner": false
+  },
+  {
+    "name": "RingCentral",
+    "logo": "/mortgage-suite/logos/22.png",
+    "partner": false
+  },
+  {
+    "name": "Bonzo",
+    "logo": "/mortgage-suite/logos/23.png",
+    "partner": false
+  },
+  {
+    "name": "Follow Up Boss",
+    "logo": "/mortgage-suite/logos/24.png",
+    "partner": false
+  },
+  {
+    "name": "Zillow",
+    "logo": "/mortgage-suite/logos/25.png",
+    "partner": false
+  },
+  {
+    "name": "TikTok",
+    "logo": "/mortgage-suite/logos/26.svg",
+    "partner": false
+  },
+  {
+    "name": "YouTube",
+    "logo": "/mortgage-suite/logos/27.svg",
+    "partner": false
+  },
+  {
+    "name": "WordPress",
+    "logo": "/mortgage-suite/logos/28.svg",
+    "partner": false
+  },
+  {
+    "name": "SEMrush",
+    "logo": "/mortgage-suite/logos/29.svg",
+    "partner": false
+  },
+  {
+    "name": "Notion",
+    "logo": "/mortgage-suite/logos/30.svg",
+    "partner": false
+  },
+  {
+    "name": "Meta",
+    "logo": "/mortgage-suite/logos/31.svg",
+    "partner": false
+  },
+  {
+    "name": "Mailchimp",
+    "logo": "/mortgage-suite/logos/32.svg",
+    "partner": false
+  },
+  {
+    "name": "Linktree",
+    "logo": "/mortgage-suite/logos/33.svg",
+    "partner": false
+  },
+  {
+    "name": "HubSpot",
+    "logo": "/mortgage-suite/logos/34.svg",
+    "partner": false
+  },
+  {
+    "name": "Google Sheets",
+    "logo": "/mortgage-suite/logos/35.svg",
+    "partner": false
+  },
+  {
+    "name": "Google Forms",
+    "logo": "/mortgage-suite/logos/36.svg",
+    "partner": false
+  },
+  {
+    "name": "Google Tag Manager",
+    "logo": "/mortgage-suite/logos/37.svg",
+    "partner": false
+  },
+  {
+    "name": "Google Analytics",
+    "logo": "/mortgage-suite/logos/38.svg",
+    "partner": false
+  },
+  {
+    "name": "Google Calendar",
+    "logo": "/mortgage-suite/logos/39.svg",
+    "partner": false
+  },
+  {
+    "name": "Google Ads",
+    "logo": "/mortgage-suite/logos/40.svg",
+    "partner": false
+  },
+  {
+    "name": "Figma",
+    "logo": "/mortgage-suite/logos/41.svg",
+    "partner": false
+  },
+  {
+    "name": "Cloudflare",
+    "logo": "/mortgage-suite/logos/42.svg",
+    "partner": false
+  },
+  {
+    "name": "Discord",
+    "logo": "/mortgage-suite/logos/43.svg",
+    "partner": false
+  }
+]
