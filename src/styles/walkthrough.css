@@ -1,0 +1,528 @@
+/* Interactive walkthrough modal + animated mock product UIs
+   scoped to the Studio Escrow features page. */
+
+.walkthrough-modal {
+  max-width: 920px !important;
+  width: min(920px, 94vw) !important;
+  padding: 0 !important;
+  border-radius: 22px !important;
+  border: 1px solid var(--border) !important;
+  background: #ffffff !important;
+  color: #151719 !important;
+  overflow: hidden;
+}
+
+.walkthrough-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.walkthrough-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 26px 28px 14px;
+}
+
+.walkthrough-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #60796c;
+}
+
+.walkthrough-heading {
+  margin: 6px 0 0;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.walkthrough-play {
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #f4f5f2;
+  color: #151719;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.walkthrough-play:hover {
+  background: #eceee9;
+}
+
+.walkthrough-stage {
+  height: 320px;
+  margin: 0 28px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: linear-gradient(160deg, #f7f8f5 0%, #eceee9 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.stage-ai-receptionist {
+  --accent: #5b7d6b;
+}
+.stage-unified-inbox {
+  --accent: #4c5b8c;
+}
+
+.walkthrough-caption {
+  padding: 20px 28px 6px;
+}
+
+.walkthrough-caption-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.walkthrough-caption-title {
+  margin: 6px 0 4px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.walkthrough-caption-text {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #595e61;
+}
+
+.walkthrough-controls {
+  padding: 18px 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.walkthrough-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.walkthrough-dot {
+  width: 26px;
+  height: 6px;
+  border-radius: 999px;
+  border: none;
+  background: #d8dad4;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.walkthrough-dot.is-active {
+  background: var(--accent);
+  transform: scaleY(1.4);
+}
+
+.walkthrough-progress {
+  height: 3px;
+  border-radius: 999px;
+  background: #eceee9;
+  overflow: hidden;
+}
+
+.walkthrough-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+.walkthrough-error {
+  padding: 28px;
+  text-align: center;
+  color: #595e61;
+}
+
+/* ---------- shared mock surface ---------- */
+.mock {
+  height: 100%;
+  width: 100%;
+  font-size: 12px;
+  color: #151719;
+}
+
+/* ---------- AI Receptionist phone mock ---------- */
+.mock-phone {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 28px;
+  gap: 10px;
+  position: relative;
+}
+
+.mock-phone-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #595e61;
+}
+
+.mock-time {
+  font-variant-numeric: tabular-nums;
+}
+
+.mock-pill.live {
+  color: #9d3b3b;
+  font-weight: 600;
+}
+
+.mock-phone-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  height: 220px;
+  overflow: hidden;
+}
+
+.mock-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: #fff;
+}
+
+.ai-avatar {
+  background: var(--accent);
+}
+
+.mock-convo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mock-bubble {
+  max-width: 80%;
+  padding: 8px 11px;
+  border-radius: 12px;
+  line-height: 1.4;
+  opacity: 0;
+  animation: bubble-in 0.4s ease forwards;
+}
+
+.mock-bubble.in {
+  align-self: flex-start;
+  background: #eef0ea;
+  color: #4b4f52;
+  font-style: italic;
+}
+
+.mock-bubble.ai {
+  align-self: flex-start;
+  background: var(--accent);
+  color: #fff;
+}
+
+.mock-bubble.lead {
+  align-self: flex-end;
+  background: #f0f1ee;
+  border: 1px solid var(--border);
+}
+
+@keyframes bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mock-booking {
+  margin-top: auto;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: #eef0ea;
+  font-weight: 600;
+  opacity: 0;
+  animation: bubble-in 0.4s ease forwards;
+}
+
+.mock-booking.confirmed {
+  background: #e7f0e6;
+  color: #355f3f;
+}
+
+.mock-tag-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.mock-tag {
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #f4f5f2;
+  border: 1px solid var(--border);
+  color: #595e61;
+}
+
+/* ---------- Unified Inbox mock ---------- */
+.mock-inbox {
+  display: flex;
+}
+
+.mock-inbox-sidebar {
+  width: 38%;
+  border-right: 1px solid var(--border);
+  background: #fbfbf9;
+  display: flex;
+  flex-direction: column;
+}
+
+.mock-inbox-search {
+  padding: 12px;
+  font-size: 11px;
+  color: #8a8e8b;
+  border-bottom: 1px solid var(--border);
+}
+
+.mock-thread-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.mock-thread {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 12px;
+  border-bottom: 1px solid #eee;
+  cursor: default;
+  transition: background 0.2s ease;
+}
+
+.mock-thread.is-active {
+  background: #eef2ee;
+}
+
+.mock-thread-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  flex: none;
+}
+
+.mock-thread-dot.ch-sms {
+  background: #2e7d5b;
+}
+.mock-thread-dot.ch-email {
+  background: #4c5b8c;
+}
+.mock-thread-dot.ch-ig {
+  background: #c0457e;
+}
+
+.mock-thread-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.mock-thread-name {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.mock-thread-prev {
+  font-size: 10px;
+  color: #8a8e8b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mock-unread {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--accent);
+  flex: none;
+}
+
+.mock-inbox-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+.mock-inbox-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.mock-inbox-name {
+  font-weight: 600;
+}
+
+.mock-inbox-channel {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 7px;
+  border-radius: 999px;
+}
+
+.mock-inbox-channel.ch-sms {
+  background: #e2f0e8;
+  color: #2e7d5b;
+}
+.mock-inbox-channel.ch-email {
+  background: #e4e7f2;
+  color: #4c5b8c;
+}
+.mock-inbox-channel.ch-ig {
+  background: #f6e4ee;
+  color: #c0457e;
+}
+
+.mock-inbox-context {
+  display: flex;
+  gap: 8px;
+  padding: 9px 14px;
+  background: #fbfbf9;
+  border-bottom: 1px solid var(--border);
+}
+
+.mock-context-pill {
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #f4f5f2;
+  color: #595e61;
+}
+
+.mock-inbox-thread {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 14px;
+  overflow: hidden;
+}
+
+.mock-msg {
+  max-width: 78%;
+  padding: 8px 11px;
+  border-radius: 12px;
+  line-height: 1.4;
+  animation: bubble-in 0.4s ease;
+}
+
+.mock-msg.in {
+  align-self: flex-start;
+  background: #f0f1ee;
+}
+
+.mock-msg.out {
+  align-self: flex-end;
+  background: var(--accent);
+  color: #fff;
+}
+
+.mock-msg.hidden {
+  opacity: 0;
+}
+
+.mock-msg.reveal {
+  animation: bubble-in 0.4s ease;
+}
+
+.mock-workflow-banner {
+  margin: 0 14px 10px;
+  padding: 8px 11px;
+  border-radius: 10px;
+  background: #eef2ee;
+  color: #355f3f;
+  font-weight: 600;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: bubble-in 0.4s ease forwards;
+}
+
+.mock-wf-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #2e7d5b;
+}
+
+.mock-inbox-composer {
+  display: flex;
+  gap: 8px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+}
+
+.mock-inbox-composer input {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 8px 10px;
+  font-size: 11px;
+  color: #8a8e8b;
+}
+
+.mock-inbox-composer button {
+  width: 34px;
+  border: none;
+  border-radius: 9px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mock-bubble,
+  .mock-msg,
+  .mock-workflow-banner,
+  .mock-booking {
+    animation: none;
+    opacity: 1;
+  }
+  .walkthrough-progress-bar {
+    transition: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .mock-inbox-sidebar {
+    display: none;
+  }
+  .walkthrough-stage {
+    height: 360px;
+  }
+}

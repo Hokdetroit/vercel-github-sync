@@ -1,4 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useWalkthrough } from "@/components/walkthrough-modal";
+import "../styles/walkthrough.css";
+
+type FeatureKey = "ai-receptionist" | "unified-inbox" | null;
+
+type Feature = {
+  key?: FeatureKey;
+  title: string;
+  description: string;
+};
 
 export const Route = createFileRoute("/features")({
   head: () => ({
@@ -27,13 +37,14 @@ export const Route = createFileRoute("/features")({
   component: FeaturesPage,
 });
 
-const features = [
+const features: Feature[] = [
   {
     title: "CRM & Pipeline",
     description:
       "Organize contacts, track opportunities, and move deals through visual pipelines. Keep calls, emails, notes, and tasks together in a complete contact timeline.",
   },
   {
+    key: "unified-inbox",
     title: "Unified Inbox",
     description:
       "Manage SMS, email, and supported social conversations in one inbox. See the context behind each message without switching between disconnected tools.",
@@ -54,6 +65,7 @@ const features = [
       "Use AI Studio and the Claude integration to support content, conversations, and workflow creation. Available capabilities depend on your plan.",
   },
   {
+    key: "ai-receptionist",
     title: "AI Receptionist",
     description:
       "Support inquiries, lead qualification, and appointment booking around the clock. Configure the experience around your business and connect it to your CRM.",
@@ -96,6 +108,8 @@ const features = [
 ];
 
 function FeaturesPage() {
+  const { openWalkthrough, modal } = useWalkthrough();
+
   return (
     <div className="min-h-screen bg-[#f8f9f7] text-[#151719] font-sans antialiased">
       {/* Navigation Header */}
@@ -168,7 +182,10 @@ function FeaturesPage() {
               </h2>
               <p className="max-w-md text-sm text-[#595e61] leading-relaxed">
                 Capabilities vary by plan and configuration. Confirm inclusions, limits, and usage
-                charges before subscribing.
+                charges before subscribing.{" "}
+                <span className="text-[#151719] font-medium">
+                  Tap a card with a walkthrough badge for an interactive product demo.
+                </span>
               </p>
             </div>
 
@@ -176,15 +193,48 @@ function FeaturesPage() {
               {features.map((item, index) => (
                 <article
                   key={item.title}
-                  className="group rounded-2xl border border-[#dedfdb] bg-white p-8 transition-shadow hover:shadow-md"
+                  className={`group rounded-2xl border border-[#dedfdb] bg-white p-8 transition-shadow hover:shadow-md ${
+                    item.key ? "cursor-pointer relative" : ""
+                  }`}
+                  {...(item.key
+                    ? {
+                        role: "button",
+                        tabIndex: 0,
+                        "aria-label": `Watch interactive walkthrough for ${item.title}`,
+                        onClick: () =>
+                          openWalkthrough(item.key as "ai-receptionist" | "unified-inbox"),
+                        onKeyDown: (e: React.KeyboardEvent) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            openWalkthrough(item.key as "ai-receptionist" | "unified-inbox");
+                          }
+                        },
+                      }
+                    : {})}
                 >
-                  <span className="text-xs font-mono tracking-widest text-[#626c65]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                  <div className="flex items-start justify-between">
+                    <span className="text-xs font-mono tracking-widest text-[#626c65]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    {item.key && (
+                      <span className="se-walkthrough-badge">
+                        <span className="se-walkthrough-badge-dot" aria-hidden="true" />
+                        Watch walkthrough
+                      </span>
+                    )}
+                  </div>
                   <h3 className="mt-8 mb-3 text-xl font-medium tracking-tight text-[#151719]">
                     {item.title}
                   </h3>
                   <p className="text-sm leading-relaxed text-[#595e61]">{item.description}</p>
+                  {item.key && (
+                    <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-[#151719] se-walkthrough-cta">
+                      Launch interactive demo
+                      <span aria-hidden="true" className="se-walkthrough-arrow">
+                        →
+                      </span>
+                    </div>
+                  )}
                 </article>
               ))}
             </div>
@@ -220,6 +270,8 @@ function FeaturesPage() {
         </a>
         <p>© 2026 Studio Escrow. All Rights Reserved.</p>
       </footer>
+
+      {modal}
     </div>
   );
 }
