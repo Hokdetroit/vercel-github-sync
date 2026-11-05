@@ -21,9 +21,19 @@ const orbit = [
   ...integrations.filter((t) => !openingBrands.includes(t[0])),
 ];
 const logosPerWave = 20;
+/* deterministic pseudo-random so SSR + client match */
+function rand(seed: number) {
+  let t = (seed + 0x6d2b79f5) | 0;
+  t = Math.imul(t ^ (t >>> 15), t | 1);
+  t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+  return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+}
+/* scattered — varied angle + radius so logos are spread, not a ring */
 const positions = Array.from({ length: logosPerWave }, (_, i) => {
-  const angle = (i / logosPerWave) * Math.PI * 2 - Math.PI / 2;
-  return [Math.cos(angle) * 475, Math.sin(angle) * 410, i % 2 ? 5 : -5];
+  const angle = rand(i * 3 + 1) * Math.PI * 2;
+  const radius = 150 + rand(i * 3 + 2) * 380;
+  const rot = (rand(i * 3 + 3) - 0.5) * 24;
+  return [Math.cos(angle) * radius, Math.sin(angle) * radius * 0.82, rot];
 });
 
 export function StudioHero() {
@@ -111,7 +121,7 @@ export function StudioHero() {
 
         {/* orbit cards */}
         <div className={s.heroOrbit} aria-hidden="true">
-          {orbit.map(([name, slug, category], i) => (
+          {orbit.map(([name, slug], i) => (
             <div
               key={name}
               className={s.heroOrbitCard}
@@ -138,8 +148,6 @@ export function StudioHero() {
                   }
                 />
               ) : null}
-              <span>{name}</span>
-              <span className={s.heroOrbitCategory}>{category}</span>
               <ArrowUpRight size={11} />
             </div>
           ))}
