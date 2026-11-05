@@ -30,10 +30,9 @@ export function StudioHero() {
   const root = useRef<HTMLElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const [paused, setPaused] = useState(false);
-  const [started, setStarted] = useState(false);
   const [error, setError] = useState(false);
 
-  /* scroll-driven dispersal + video expand */
+  /* scroll-driven dispersal of the orbit cards */
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 760px)");
     let frame = 0;
@@ -45,15 +44,6 @@ export function StudioHero() {
         ? 0
         : Math.max(0, Math.min(1, -rect.top / Math.max(1, rect.height - window.innerHeight)));
       root.current.style.setProperty("--flight", String(progress));
-
-      /* expand the video as we approach the end of the hero */
-      if (video.current && progress > 0.55) {
-        video.current.style.setProperty("--expand", String(Math.min(1, (progress - 0.55) / 0.45)));
-        if (!started && progress > 0.6) {
-          setStarted(true);
-          video.current.play().catch(() => setError(true));
-        }
-      }
     };
     const scroll = () => {
       if (!frame) frame = requestAnimationFrame(update);
@@ -68,24 +58,53 @@ export function StudioHero() {
       window.removeEventListener("resize", scroll);
       media.removeEventListener("change", scroll);
     };
-  }, [started]);
+  }, []);
 
-  async function play() {
-    setStarted(true);
-    try {
-      await video.current?.play();
-    } catch {
-      setError(true);
+  /* autoplay the hero background video muted on mount */
+  useEffect(() => {
+    const v = video.current;
+    if (!v) return;
+    v.muted = true;
+    v.loop = true;
+    v.play().catch(() => setError(true));
+  }, []);
+
+  function togglePause() {
+    const v = video.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play().catch(() => {});
+      setPaused(false);
+    } else {
+      v.pause();
+      setPaused(true);
     }
   }
 
   return (
     <section ref={root} className={s.heroFlight} aria-label="AI Studio hero">
       <div className={s.heroStage}>
+        {/* autoplaying background video */}
+        <div className={s.heroVideo} aria-hidden="true">
+          <video
+            ref={video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/ai-studio/studio-poster.jpg"
+            aria-label="AI Studio background film"
+            onError={() => setError(true)}
+          >
+            <source src="/ai-studio/studio-film.mp4" type="video/mp4" />
+          </video>
+        </div>
+
         {/* top bar */}
         <div className={s.heroTop}>
           <span>STUDIO ESCROW / AI STUDIO</span>
-          <button onClick={() => setPaused(!paused)} aria-pressed={paused} className={s.heroPause}>
+          <button onClick={togglePause} aria-pressed={paused} className={s.heroPause}>
             {paused ? <Play size={14} /> : <Pause size={14} />} {paused ? "Resume" : "Pause"}
           </button>
         </div>
@@ -109,19 +128,19 @@ export function StudioHero() {
                 <img
                   src={logoUrl(slug)}
                   alt=""
-                  width={70}
-                  height={70}
+                  width={36}
+                  height={36}
                   decoding="async"
                   style={
                     slug === "openai"
-                      ? { background: "var(--ink)", borderRadius: 16, padding: 10 }
+                      ? { background: "var(--paper)", borderRadius: 8, padding: 5 }
                       : undefined
                   }
                 />
               ) : null}
               <span>{name}</span>
               <span className={s.heroOrbitCategory}>{category}</span>
-              <ArrowUpRight size={15} />
+              <ArrowUpRight size={11} />
             </div>
           ))}
         </div>
@@ -151,31 +170,12 @@ export function StudioHero() {
           </a>
         </div>
 
-        {/* expanding video layer — sits behind copy, expands to fill hero on scroll */}
-        <div className={s.heroVideo} aria-hidden={!started}>
-          <video
-            ref={video}
-            controls={started}
-            playsInline
-            preload="none"
-            poster="/ai-studio/studio-poster.jpg"
-            aria-label="Original AI Studio promotional film"
-            onError={() => setError(true)}
-          >
-            <source src="/ai-studio/studio-film.mp4" type="video/mp4" />
-          </video>
-          {!started && (
-            <button type="button" className={s.heroPlay} onClick={play}>
-              Watch the film <small>00:20</small>
-            </button>
-          )}
-          {error && (
-            <p className={s.heroVideoError}>
-              Unable to start playback.{" "}
-              <a href="/ai-studio/studio-film.mp4">Open the video directly</a>.
-            </p>
-          )}
-        </div>
+        {error && (
+          <p className={s.heroVideoError}>
+            Unable to start playback.{" "}
+            <a href="/ai-studio/studio-film.mp4">Open the video directly</a>.
+          </p>
+        )}
       </div>
     </section>
   );

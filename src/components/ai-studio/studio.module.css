@@ -645,12 +645,7 @@
   align-items: center;
   justify-content: center;
   isolation: isolate;
-  background: var(--blue);
-  background-image: radial-gradient(
-    color-mix(in srgb, var(--ink) 14%, transparent) 0.7px,
-    transparent 0.7px
-  );
-  background-size: 24px 24px;
+  background: var(--ink);
 }
 .heroTop,
 .heroBottom {
@@ -674,12 +669,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
-  background: var(--paper);
-  color: var(--ink);
+  border: 1px solid color-mix(in srgb, var(--paper) 35%, transparent);
+  background: color-mix(in srgb, var(--ink) 45%, transparent);
+  color: var(--paper);
   border-radius: 99px;
   padding: 8px 14px;
   font-size: 14px;
+  backdrop-filter: blur(6px);
 }
 .heroBottom {
   bottom: 30px;
@@ -706,18 +702,19 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 174px;
-  height: 174px;
+  width: 92px;
+  height: 92px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 14px;
-  border: 1px solid color-mix(in srgb, var(--paper) 80%, transparent);
-  border-radius: 25px;
-  background: color-mix(in srgb, var(--paper) 92%, transparent);
-  box-shadow: 0 10px 35px color-mix(in srgb, var(--ink) 7%, transparent);
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid color-mix(in srgb, var(--ink) 55%, transparent);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--ink) 72%, transparent);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   transform: translate(-50%, -50%) rotate(calc(var(--flight) * 18deg))
     translate(
       calc(var(--x) * (1 + var(--flight) * 1.3)),
@@ -725,23 +722,26 @@
     )
     rotate(calc(var(--r) - var(--flight) * 18deg));
   will-change: transform, opacity;
-  opacity: calc(1 - var(--flight) * 0.4);
+  opacity: calc(0.92 - var(--flight) * 0.5);
 }
 .heroOrbitCard > span:nth-child(2) {
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 500;
   text-align: center;
-  line-height: 1.3;
+  line-height: 1.2;
+  color: var(--paper);
 }
 .heroOrbitCategory {
-  font-size: 12px;
-  opacity: 0.6;
+  font-size: 9px;
+  opacity: 0.55;
+  color: var(--paper);
 }
 .heroOrbitCard > svg {
   position: absolute;
-  right: 12px;
-  top: 12px;
-  opacity: 0.6;
+  right: 7px;
+  top: 7px;
+  opacity: 0.5;
+  color: var(--paper);
 }
 .heroCopy {
   position: relative;
@@ -753,6 +753,14 @@
   text-align: center;
   transform: scale(calc(1 + var(--flight) * 0.08));
   pointer-events: none;
+  color: var(--paper);
+}
+.heroCopy .eyebrow {
+  color: var(--paper);
+}
+.heroCopy .primary {
+  background: var(--paper);
+  color: var(--ink);
 }
 .heroCopy a {
   pointer-events: auto;
@@ -762,33 +770,55 @@
   letter-spacing: -0.075em;
   line-height: 1;
   white-space: nowrap;
+  color: var(--paper);
 }
 .heroCopy h1 span {
-  color: var(--paper);
+  color: color-mix(in srgb, var(--paper) 55%, transparent);
 }
 .heroCopy > p {
   font-size: clamp(24px, 2.6vw, 40px);
   line-height: 1.2;
   letter-spacing: -0.04em;
+  color: var(--paper);
 }
 .heroMicro {
   font-size: 14px;
   opacity: 0.7;
+  color: var(--paper);
+}
+.heroTop > span {
+  color: var(--paper);
+}
+.heroBottom > span {
+  color: var(--paper);
+}
+.heroBottom a {
+  color: var(--paper);
 }
 .heroVideo {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 2;
-  width: calc(36% + var(--expand) * 64%);
-  aspect-ratio: 16/9;
-  transform: translate(-50%, -50%);
-  border-radius: 24px;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  border-radius: 0;
   overflow: hidden;
   background: var(--ink);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-  opacity: calc(0.35 + var(--expand) * 0.65);
-  transition: opacity 0.4s ease;
+  box-shadow: none;
+  opacity: 1;
+}
+.heroVideo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--ink) 55%, transparent) 0%,
+    color-mix(in srgb, var(--ink) 25%, transparent) 45%,
+    color-mix(in srgb, var(--ink) 65%, transparent) 100%
+  );
+  pointer-events: none;
 }
 .heroVideo video {
   display: block;
@@ -797,7 +827,7 @@
   object-fit: cover;
 }
 .heroVideo:has(video[controls]) video {
-  object-fit: contain;
+  object-fit: cover;
 }
 .heroPlay {
   position: absolute;
@@ -836,8 +866,8 @@
 }
 @media (max-width: 1000px) {
   .heroOrbitCard {
-    width: 150px;
-    height: 150px;
+    width: 78px;
+    height: 78px;
   }
 }
 @media (max-width: 700px) {
@@ -851,11 +881,16 @@
     font-size: 22px;
   }
   .heroOrbitCard {
-    width: 120px;
-    height: 120px;
+    width: 64px;
+    height: 64px;
+    padding: 6px;
+    border-radius: 12px;
   }
   .heroOrbitCard > span:nth-child(2) {
-    font-size: 12px;
+    font-size: 9px;
+  }
+  .heroOrbitCategory {
+    display: none;
   }
   .heroPlay {
     padding: 12px 18px;
