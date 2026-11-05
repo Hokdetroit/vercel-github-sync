@@ -49,12 +49,12 @@ export function AboutPage() {
           </div>
         </div>
         <div className={s.audience}>
-          <span>Real estate</span>
-          <span>Mortgage</span>
-          <span>Medical & wellness</span>
-          <span>Home services</span>
-          <span>Agencies</span>
-          <span>E-commerce</span>
+          <a href={href("realEstateSuite")}>Real estate</a>
+          <a href={href("mortgageSuite")}>Mortgage</a>
+          <a href={href("medicalSuite")}>Medical & wellness</a>
+          <a href={href("doItForYou")}>Home services</a>
+          <a href={href("doItForYou")}>Agencies</a>
+          <a href={href("features")}>E-commerce</a>
         </div>
       </section>
 

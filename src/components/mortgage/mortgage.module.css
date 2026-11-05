@@ -167,6 +167,17 @@
   padding-top: 24px;
   font-size: 14px;
 }
+.audience a {
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+.audience a:hover {
+  color: var(--accent);
+  opacity: 0.85;
+}
 .partners {
   padding: 64px var(--pad);
   background: var(--paper);
