@@ -95,7 +95,7 @@ export function SiteFooter() {
           {/* Oversized wordmark — fills the bottom edge */}
           <h2
             aria-hidden="true"
-            className="select-none text-[clamp(64px,18vw,260px)] font-semibold leading-[0.85] tracking-[-0.065em] text-white/90"
+            className="select-none text-[clamp(32px,8.5vw,110px)] font-semibold leading-[1] tracking-[-0.04em] text-white/90"
           >
             Studio Escrow
           </h2>
