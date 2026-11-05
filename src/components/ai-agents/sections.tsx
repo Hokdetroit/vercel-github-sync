@@ -201,20 +201,7 @@ export function Statement() {
 export function ConnectedWorkspace() {
   return (
     <section className={styles.visualStory} aria-labelledby="ai-connected-title">
-      <div
-        className={styles.visualStoryImg}
-        aria-hidden="true"
-        style={{
-          width: "100%",
-          height: 540,
-          borderRadius: 28,
-          background:
-            "linear-gradient(135deg, color-mix(in srgb, var(--blue) 22%, var(--paper)) 0%, color-mix(in srgb, var(--ink) 8%, var(--paper)) 100%)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div className={styles.visualStoryImg} aria-hidden="true">
         <Bot size={120} strokeWidth={1.1} style={{ color: "var(--blue)", opacity: 0.85 }} />
       </div>
       <div className={styles.visualCopy}>

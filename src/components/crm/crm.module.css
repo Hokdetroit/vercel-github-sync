@@ -1010,11 +1010,22 @@
   background: var(--paper);
   color: var(--ink);
 }
-.visualStory > img {
+.visualStory > img,
+.visualStoryImg {
   width: 100%;
   height: 540px;
   object-fit: cover;
   border-radius: 28px;
+}
+.visualStoryImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--blue) 22%, var(--paper)) 0%,
+    color-mix(in srgb, var(--ink) 8%, var(--paper)) 100%
+  );
 }
 .visualCopy {
   display: flex;
@@ -1122,7 +1133,8 @@
     gap: 32px;
     padding: 56px 24px;
   }
-  .visualStory > img {
+  .visualStory > img,
+  .visualStoryImg {
     height: 300px;
   }
   .heroArtwork {
@@ -1141,6 +1153,27 @@
   }
   .heroTitle {
     font-size: clamp(38px, 9vw, 76px);
+  }
+  .visualStoryImg {
+    border-radius: 20px;
+  }
+  .logoRow > div {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .panelChart {
+    padding: 48px 12px 32px;
+  }
+  .chartSvg {
+    max-height: 50vh;
+  }
+  .tick,
+  .noteText,
+  .seriesText {
+    font-size: 13px;
+  }
+  .axisLabel {
+    font-size: 11px;
   }
 }
 
