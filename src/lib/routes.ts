@@ -53,8 +53,7 @@ export const routes = {
     description:
       "Compare Studio Escrow Growth, Scale, Medical Suite, and Mortgage Suite plans. Simple monthly pricing with usage-based services billed separately.",
     status: "built",
-    source: "mirror",
-    mirrorFile: "pricing",
+    source: "app",
   },
   crmAutomations: {
     path: "/crm-automations",

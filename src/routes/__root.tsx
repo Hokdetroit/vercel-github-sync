@@ -65,7 +65,7 @@ function RootDocument({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
-  if (pathname === "/" || pathname.replace(/\/$/, "") === "/pricing") {
+  if (pathname === "/") {
     return <Outlet />;
   }
 
