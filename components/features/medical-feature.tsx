@@ -1,0 +1,16 @@
+'use client'
+
+import { useState } from 'react'
+import { ArrowUpRight, ShieldCheck, Check } from 'lucide-react'
+import { FeatureIcon } from './feature-universe'
+import s from './features.module.css'
+const panels = [
+ {name:'Custom EMR',title:'Your specialty. Your workflow.',description:'Design intake, chart structure and clinical workflows around your practice—not a generic template.',items:['Specialty-specific intake and charting','Role-based access design','Approved data and integration mapping'],label:'Clinical workspace',steps:['Intake received','Care-team review','Chart preparation']},
+ {name:'Patient portals',title:'A better connection between visits.',description:'Give patients an approved place to complete forms, access documents and communicate with your team.',items:['Authenticated patient access','Intake and document workflows','Scoped messaging and request handling'],label:'Patient workspace',steps:['Complete intake','Review documents','Send a request']},
+ {name:'Practice dashboards',title:'Clarity for the people running the practice.',description:'Bring operational views into a role-aware dashboard designed around the decisions your team needs to make.',items:['Appointment and intake visibility','Permission-aware operational reporting','Audit and access requirements in scope'],label:'Practice workspace',steps:['Appointment flow','Pending intake','Team follow-up']},
+]
+export function MedicalFeature(){
+ const [active,setActive]=useState(0)
+ const p=panels[active]
+ return <section id="medical" className={s.medical}><div className={s.medicalHeading}><span className={s.eyebrow}><ShieldCheck size={16}/> The Medical Suite</span><h2>Built around care.<br/><span>Designed around you.</span></h2><p>Custom EMRs, patient portals and practice dashboards.<br/>A more connected experience for your team and the people you serve.</p></div><div className={s.medicalGrid}><div className={s.medicalCopy}><div className={s.filters} aria-label="Medical capabilities">{panels.map((item,i)=><button aria-pressed={i===active} aria-controls="medical-preview" key={item.name} onClick={()=>setActive(i)}>{item.name}</button>)}</div><h3>{p.title}</h3><p>{p.description}</p><ul>{p.items.map(item=><li key={item}><Check size={17}/>{item}</li>)}</ul><a href="/schedule-demo">Design your Medical Suite <ArrowUpRight size={17}/></a></div><div className={s.medicalPreview} id="medical-preview" aria-live="polite"><div className={s.previewTop}><span>STUDIO ESCROW / MEDICAL</span><span>Concept preview</span></div><FeatureIcon index={5}/><h3>{p.label}</h3><p>A workspace shaped to your practice.</p><div className={s.previewSteps}>{p.steps.map((step,i)=><div key={step}><span>{i+1}</span>{step}<ArrowUpRight size={16}/></div>)}</div></div></div><div className={s.compliance}><ShieldCheck size={24}/><div><strong>A HIPAA-compliant workflow takes more than a feature.</strong><p>Medical Suite projects can be scoped for HIPAA requirements. Before any protected health information is used, confirm the applicable BAA, hosting and service eligibility, access controls, audit logging, encryption, retention policies and staff procedures. Custom EMRs require clinical validation; third-party tools and AI are not automatically approved for PHI. No patient data is used in this preview.</p></div></div></section>
+}
