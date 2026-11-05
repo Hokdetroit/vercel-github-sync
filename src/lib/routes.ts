@@ -11,7 +11,7 @@ export const MEGA_MENU_SRC = `/assets/mega-menu/mega-menu.js?v=${MEGA_MENU_VERSI
 export const MEGA_MENU_CSS = `/assets/mega-menu/mega-menu.css?v=${MEGA_MENU_VERSION}`;
 export const SITE_NAME = "Studio Escrow";
 
-export const INDEXING_ENABLED = process.env.INDEXING_ENABLED === "true";
+export const INDEXING_ENABLED = import.meta.env.VITE_INDEXING_ENABLED === "true";
 
 export type RouteStatus = "built";
 

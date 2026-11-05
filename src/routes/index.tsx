@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { MirroredPage } from "@/components/site/mirrored-page";
 
 /**
  * Studio Escrow homepage — 1:1 clone of the original Webflow export.
@@ -43,20 +44,9 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <iframe
+    <MirroredPage
       src="/index-clone.html"
       title="Studio Escrow — All-in-One CRM, AI & Business Automation"
-      style={{
-        position: "fixed",
-        inset: 0,
-        width: "100%",
-        height: "100%",
-        border: "none",
-        margin: 0,
-        padding: 0,
-        display: "block",
-      }}
-      allow="autoplay; fullscreen; picture-in-picture"
     />
   );
 }

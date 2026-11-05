@@ -1,4 +1,11 @@
-import { Outlet, createRootRoute } from "@tanstack/react-router";
+import {
+  HeadContent,
+  Outlet,
+  Scripts,
+  createRootRoute,
+  useRouterState,
+} from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportVibeError } from "../lib/vibe-error-reporting";
 import { SiteHeader } from "@/components/site/site-header";
@@ -38,10 +45,30 @@ export const Route = createRootRoute({
   onError: (error: unknown) => {
     reportVibeError(error);
   },
+  shellComponent: RootDocument,
   component: RootComponent,
 });
 
+function RootDocument({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en" className="bg-background">
+      <head>
+        <HeadContent />
+      </head>
+      <body className="bg-background text-foreground font-sans">
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
 function RootComponent() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  if (pathname === "/" || pathname.replace(/\/$/, "") === "/pricing") {
+    return <Outlet />;
+  }
+
   return (
     <div className={`ma3IoW_page lP4odW_page qqicjq_variable ${styles.shell}`}>
       <a href="#main" className={styles.skipLink}>
