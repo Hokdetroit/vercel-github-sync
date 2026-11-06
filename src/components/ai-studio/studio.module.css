@@ -707,30 +707,27 @@
   align-items: center;
   justify-content: center;
   padding: 8px;
-  border: 1px solid color-mix(in srgb, var(--ink) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--paper) 50%, transparent);
   border-radius: 16px;
-  /* solid translucent background — no backdrop-filter (blur over a playing
-     video is re-rasterized per card per frame and janks the scroll). */
-  background: color-mix(in srgb, var(--ink) 78%, transparent);
+  /* frosted white glass — blurred white container for the icons */
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(8px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  /* scattered start, then disperse outward in all directions on scroll.
-     No transition: --flight is re-driven every rAF, so transform/opacity
-     must update instantly each frame (matches the working Features hero). */
+  /* fade in from center, then slowly disperse outward on scroll.
+     At flight 0: clustered at center + invisible. As flight increases
+     the cards disperse to their scattered positions and fade in. */
   transform: translate(-50%, -50%)
-    translate(
-      calc(var(--x) * (1 + var(--flight) * 2.2)),
-      calc(var(--y) * (1 + var(--flight) * 2.2))
-    )
+    translate(calc(var(--x) * var(--flight) * 2.2), calc(var(--y) * var(--flight) * 2.2))
     rotate(calc(var(--r) + var(--flight) * 40deg));
   will-change: transform, opacity;
-  opacity: calc(0.92 - var(--flight) * 0.85);
+  opacity: calc(var(--flight) * 0.92);
 }
 .heroOrbitCard > svg {
   position: absolute;
   right: 6px;
   bottom: 6px;
-  opacity: 0.45;
-  color: var(--paper);
+  opacity: 0.55;
+  color: var(--ink);
 }
 .heroCopy {
   position: relative;
@@ -882,7 +879,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .heroOrbitCard {
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) translate(var(--x), var(--y)) rotate(var(--r));
     opacity: 1;
   }
   .heroVideo {
