@@ -670,12 +670,11 @@
   align-items: center;
   gap: 8px;
   border: 1px solid color-mix(in srgb, var(--paper) 35%, transparent);
-  background: color-mix(in srgb, var(--ink) 45%, transparent);
+  background: color-mix(in srgb, var(--ink) 60%, transparent);
   color: var(--paper);
   border-radius: 99px;
   padding: 8px 14px;
   font-size: 14px;
-  backdrop-filter: blur(6px);
 }
 .heroBottom {
   bottom: 30px;
@@ -710,8 +709,9 @@
   padding: 8px;
   border: 1px solid color-mix(in srgb, var(--ink) 55%, transparent);
   border-radius: 16px;
-  background: color-mix(in srgb, var(--ink) 72%, transparent);
-  backdrop-filter: blur(6px);
+  /* solid translucent background — no backdrop-filter (blur over a playing
+     video is re-rasterized per card per frame and janks the scroll). */
+  background: color-mix(in srgb, var(--ink) 78%, transparent);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   /* scattered start, then disperse outward in all directions on scroll.
      No transition: --flight is re-driven every rAF, so transform/opacity

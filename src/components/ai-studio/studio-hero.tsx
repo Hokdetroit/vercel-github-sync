@@ -36,19 +36,56 @@ const positions = Array.from({ length: logosPerWave }, (_, i) => {
   return [Math.cos(angle) * radius, Math.sin(angle) * radius * 0.82, rot];
 });
 
+/* Prefer local SVGs (already in /public/assets/integrations) to avoid
+   dozens of remote requests that jank the scroll-driven animation. */
+const LOCAL_SLUGS = new Set([
+  "salesforce",
+  "hubspot",
+  "shopify",
+  "slack",
+  "stripe",
+  "zapier",
+  "mailchimp",
+  "quickbooks",
+  "google-ads",
+  "google-analytics",
+  "instagram",
+  "facebook",
+  "tiktok",
+  "youtube",
+  "wordpress",
+  "google",
+  "notion",
+  "figma",
+  "discord",
+  "cloudflare",
+  "semrush",
+  "zillow",
+  "linktree",
+  "meta",
+  "google-calendar",
+  "google-forms",
+  "google-sheets",
+  "google-tag-manager",
+]);
+function localLogo(slug: string) {
+  return LOCAL_SLUGS.has(slug) ? `/assets/integrations/${slug}.svg` : logoUrl(slug);
+}
+
 export function StudioHero() {
   const root = useRef<HTMLElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const [paused, setPaused] = useState(false);
   const [error, setError] = useState(false);
 
-  /* scroll-driven dispersal of the orbit cards */
+  /* scroll-driven dispersal of the orbit cards — gated on pause like the
+     working Features hero so the rAF loop stops when the user pauses. */
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 760px)");
     let frame = 0;
     const update = () => {
       frame = 0;
-      if (!root.current) return;
+      if (!root.current || (paused && !media.matches)) return;
       const rect = root.current.getBoundingClientRect();
       const progress = media.matches
         ? 0
@@ -68,7 +105,7 @@ export function StudioHero() {
       window.removeEventListener("resize", scroll);
       media.removeEventListener("change", scroll);
     };
-  }, []);
+  }, [paused]);
 
   /* autoplay the hero background video muted on mount */
   useEffect(() => {
@@ -136,11 +173,12 @@ export function StudioHero() {
             >
               {slug ? (
                 <img
-                  src={logoUrl(slug)}
+                  src={localLogo(slug)}
                   alt=""
                   width={36}
                   height={36}
                   decoding="async"
+                  loading="lazy"
                   style={
                     slug === "openai"
                       ? { background: "var(--paper)", borderRadius: 8, padding: 5 }
