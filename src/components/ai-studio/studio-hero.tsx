@@ -5,21 +5,34 @@ import { ArrowDown, ArrowUpRight, Pause, Play } from "lucide-react";
 import { integrations, logoUrl } from "../features/feature-data";
 import s from "./studio.module.css";
 
-/* Orbit setup — same logic as FeatureUniverse but tuned for AI Studio */
+/* Orbit setup — same logic as FeatureUniverse but tuned for AI Studio.
+   Extra AI/communication brands (Claude, OpenAI, OpenClaw, Stripe, SMS,
+   Email) are appended to the source integrations list so they appear in
+   the scattered orbit. */
 const openingBrands = [
-  "Stripe",
   "Anthropic Claude",
+  "ChatGPT / OpenAI",
+  "OpenClaw",
+  "Stripe",
+  "SMS",
+  "Email",
   "Salesforce",
   "Slack",
   "Shopify",
   "Zapier",
   "HubSpot",
-  "ChatGPT / OpenAI",
 ];
-const orbit = [
+const extraBrands: [string, string, string][] = [
+  ["OpenClaw", "openclaw", "AI & automation"],
+  ["SMS", "sms", "Communication"],
+  ["Email", "email", "Communication"],
+];
+const base = [
   ...openingBrands.map((name) => integrations.find((t) => t[0] === name)!),
+  ...extraBrands,
   ...integrations.filter((t) => !openingBrands.includes(t[0])),
 ];
+const orbit = base;
 const logosPerWave = 20;
 /* deterministic pseudo-random so SSR + client match */
 function rand(seed: number) {
@@ -67,6 +80,11 @@ const LOCAL_SLUGS = new Set([
   "google-forms",
   "google-sheets",
   "google-tag-manager",
+  "claude",
+  "openai",
+  "openclaw",
+  "sms",
+  "email",
 ]);
 function localLogo(slug: string) {
   return LOCAL_SLUGS.has(slug) ? `/assets/integrations/${slug}.svg` : logoUrl(slug);

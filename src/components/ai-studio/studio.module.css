@@ -709,9 +709,8 @@
   padding: 8px;
   border: 1px solid color-mix(in srgb, var(--paper) 22%, transparent);
   border-radius: 16px;
-  /* solid translucent black — no backdrop-filter (blur over a playing
-     video is re-rasterized per card per frame and janks the scroll). */
-  background: color-mix(in srgb, var(--ink) 72%, transparent);
+  /* solid opaque black — no transparency, no backdrop-filter. */
+  background: var(--ink);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   /* fade in from center, then slowly disperse outward on scroll.
      No transition: --flight is re-driven every rAF, so transform/opacity
